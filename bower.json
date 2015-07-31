@@ -1,0 +1,25 @@
+{
+  "name": "bower",
+  "version": "0.1.1",
+  "authors": [
+    "libaozhong <baozhongmail@yeah.net>"
+  ],
+  "description": "\"reactdemo\"",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.3",
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.3",
+    "angular-loader": "~1.4.3",
+    "angular-mocks": "~1.4.3",
+    "html5-boilerplate": "~5.2.0",
+    "angular-resource": "~1.4.3"
+  }
+}

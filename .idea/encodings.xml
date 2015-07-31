@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/common/dbHelper.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/js/jslib/html5-boilerplate/gulpfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/stylesheets/style.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/views/view1/activityList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/views/view1/activityListService.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/views/view1/view1.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/views/view1/view1.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/views/view5/view5.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/users.js" charset="UTF-8" />
+  </component>
+</project>
