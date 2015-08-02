@@ -1,7 +1,12 @@
-<div class="search-page">
-    <div><span>出发地点</span><input id="startcity" ng-model="startcity" type="text"/></div>
+<div class="search-page" ng-show="status">
+<div><span>出发地点</span><input id="startcity" ng-model="startcity" type="text"/></div>
     <div><span>出发时间</span><input id="starttime" ng-model="startTime" type="date"/></div>
     <div><span>活动天数</span><input id="days"   ng-model="days" type="text" value="2"/></div>
     <div><span>活动费用</span><input id="costfee" ng-model="costfee" type="text" value="100-500"/></div>
-    <a class="btn-sub" href="javascript:void(0);" ng-click="showActivityList();">GO!</a>
+    <a class="btn-sub" href="javascript:void(0);" ng-click="redirectToList();">GO!</a>
+    <img ngs-butterbar src="../images/person.png">
+</div>
+<div class="list-page" ng-show="!status">
+
+    <p>chanpinliebiao</p>
 </div>

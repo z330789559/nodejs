@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express',say:'hello' });
+  res.render('views/index', { title: 'Express',say:'hello' });
 }).get('/acitivity', function(req, res, next) {
   console.log(req.query);
   var data={result:[{
