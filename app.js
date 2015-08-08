@@ -6,15 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var activity = require('./routes/activity');
 var app = express();
 
 global.dbHelper=require('./public/common/dbHelper');
 console.log(global.dbHelper);
 // view engine setup
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views', __dirname + '/public');
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -25,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/activity', activity);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

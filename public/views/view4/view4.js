@@ -1,6 +1,6 @@
 'use strict';
 
 
-controller.controller('View4Ctrl', [function() {
+controller.controller('View4Ctrl', function() {
 
-}]);
+});

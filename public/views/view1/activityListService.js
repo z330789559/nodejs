@@ -2,16 +2,15 @@
  * Created by Administrator on 2015/7/31.
  */
 service.service("activityListService",['$rootScope','$q','$http','$log',function($rootScope,$q,$http,$log){
-    this.scope=$rootScope;
-    this.log=$log;
-    this.num=2;
-    this.getActivityList=function(params){
-       console.log(params);
+return{
+    num:2,
+    getActivityList:function(params){
+
         var deferred = $q.defer();
 
         $http({
-            method: 'GET',
-            url: '/acitivity',
+            method: 'POST',
+            url: '/activity/add',
             params : params
         })
             .success(function (response) {
@@ -23,5 +22,8 @@ service.service("activityListService",['$rootScope','$q','$http','$log',function
             });
 
         return deferred.promise;
-    };
+    }
+
+};
+
 }]);

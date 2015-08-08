@@ -1,16 +1,15 @@
 'use strict';
 
 
-controller.controller('View1Ctrl', ['$scope','$log','$interval','$location','$state','activityListService',function($scope,$log,$interval,$location,$state,activityListService) {
+controller.controller('View1Ctrl',['$scope',"$log","$location","activityListService",function($scope,$log,$location,activityListService) {
     $scope.startcity="上海";
-    $scope.startTime=new Date();
+    $scope.startTime="2015-12-07";
     $scope.days="2";
     $scope.costfee="100-500";
     $scope.activityList=[];
-    $scope.status=true;
     $scope.actvityItem={
         activityTitle:"",
-        actvityDate:new Date(),
+        actvityDate:"2015-12-07",
         activtyStartCity:"上海",
         activityDays:2,
         actvityId:"",
@@ -24,6 +23,7 @@ controller.controller('View1Ctrl', ['$scope','$log','$interval','$location','$st
         days: $scope.days,
         costfee:$scope.costfee
     };
+
     $scope.showActivityList=function(){
        var promise= activityListService.getActivityList($scope.params);
 
@@ -33,14 +33,11 @@ controller.controller('View1Ctrl', ['$scope','$log','$interval','$location','$st
                 $scope.activityList=  JSON.stringify(data);
                 $scope.redirectToList();
             },
-            function error(error) {
-                console.error(error);
-             })
+            function fail(error) {
+                $log.info(error);
+             });
       };
-
         $scope.redirectToList = function () {
-            $location.path("index/activityList/"+$scope.startcity);
-
-           console.log($state.params);
+            $location.path("index/activityList/"+$scope.startcity+"/"+$scope.startTime+"/"+$scope.days+"/"+$scope.costfee);
         }
 }]);

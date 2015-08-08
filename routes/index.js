@@ -1,34 +1,26 @@
 var express = require('express');
+var https = require('https');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('views/index', { title: 'Express',say:'hello' });
-}).get('/acitivity', function(req, res, next) {
-  console.log(req.query);
-  var data={result:[{
-    startCity: "上海",
-    startTime:"2014-12-25",
-    activityDays:"4",
-    costFee:500,
-    activityTitle:"太极",
-    personNum:"12-15",
-    imgName:"taiji.jpg",
-    activityOwer:"张三丰",
-    memerberRank:"高级"
-  },{
-    startCity: "北京",
-    startTime:"2015-12-25",
-    activityDays:"11",
-    costFee:13000,
-    activityTitle:"去西藏看山",
-     personNum:"12-15",
-      imgName:"xizhang.jpg",
-      activityOwer:"达赖喇嘛",
-      memerberRank:"专家"
-  }]};
-  console.log(data);
-  res.send(JSON.stringify(data));
+  res.render('index', { title: 'Express',say:'hello' });
+}).get('/jsTikect', function(req, res, next) {
+  var appid='wx9044e7f4cc0ee338';
+  var AppSecret='392587cb09bc9b68616153795a932367';
+  var http ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
+  var realToken=http.replace("APPID",appid).replace("APPSECRET",AppSecret);
+  https.get(http,function(resp){
+    resp.setEncoding('utf8');
+    resp.on('data', function (data) {
+      console.log('BODY: ' + data);
+      res.send(data);
+    });
+
+
+  }).on('error', function(e) {
+    console.error(e);
+  });
 });
 
 module.exports = router;

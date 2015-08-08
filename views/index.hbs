@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-<head lang="en">
-    <title>{[{title}]}</title>
+
+<html lang="en"  class="no-js">
+<head >
+    <title>心灵旅游</title>
 
     <!-- General META -->
     <meta charset="utf-8">
@@ -13,40 +11,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    <meta name="fragment" content="!" />
     <!-- Semantic META -->
     <meta name="keywords" content="自由行,徒步,放松,大自然">
     <meta name="description" content="轻松自由行,放松身心">
-
+    <meta name="304Fix" content="safari-fix">
     <!-- Fav Icon -->
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/ionic.css">
     <link rel="stylesheet" href="js/jslib/html5-boilerplate/dist/css/normalize.css">
-    <!-- HTML5 Shim -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
-<body ng-cloak>
 
-<div class="index-page" ng-view ></div>
+<body ng-cloak  ng-app="myAppjs">
 
-<script src="js/jslib/jquery/dist/jquery.js"></script>
+<div class="index-page" ui-view></div>
+
 <script src="js/jslib/angularjs/angular.js"></script>
-<script src="js/jslib/angular-resource/angular-resource.js"></script>
+<script src="js/jslib/angular-ui/angular-ui-router.js"></script>
+
 <script src="javascripts/main.js"></script>
+<script src="views/MainCtrl.js"></script>
 <script src="views/view1/view1.js"></script>
 <script src="views/view2/view2.js"></script>
 <script src="views/view3/view3.js"></script>
 <script src="views/view4/view4.js"></script>
 <script src="views/view5/view5.js"></script>
+<script src="views/view1/activityDetailController.js"></script>
 <script src="views/view1/activityList.js"></script>
 <script src="views/view1/activityListService.js"></script>
-<script src="js/jslib/angular-route/angular-route.js"></script>
 <script src="js/common/interpolate-filter.js"></script>
 <script src="js/common/version-directive.js"></script>
 <script src="js/common/version.js"></script>
 <script src="js/jslib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </body>
+
 </html>

@@ -283,10 +283,8 @@
 .vh{visibility:hidden;}
 .vv{visibility:visible;}
 /* opacity */
-.opa0{opacity:0; filer:alpha(opacity=0);}
 /* zoom */
 .z{*zoom:1;}
-
 
 /* ------------------- multiply CSS ------------------ */
 /* 块状元素水平居中 */
@@ -335,20 +333,13 @@ a{
 html,body{
     height:100%;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 .main-page{
     height:100%;
     background-image: url("../images/main-bk.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-}
-.menu{
-padding:40px 0 0 0 ;
-margin:0px;
-height:50%;
-  color:yellow;
-
 }
 .menu li{
   list-style:none;
@@ -411,4 +402,155 @@ font-size: 0.9rem;
   border-color: rgb(161, 221, 38);
   box-shadow: -2px -2px;
   line-height: 30px;
+}
+.list-item img{
+ width:80px;
+  height:100px;
+  float:left;
+  display:block;
+}
+.item-left{
+   padding-left: 88px;
+  line-height: 24px;
+  color: #333;
+}
+.item-left p{
+   margin-bottom:0px;
+   font-size:12px;
+}
+.item-left h4{
+  font-weight:600;
+ 
+}
+.list-item{
+
+}
+.item-left p i{
+margin-right:5px;
+}
+.activity-money{
+    float: right;margin-right:5px;
+}
+.actList-header{
+    margin:15px 5px;
+}
+.actList-header span:first-child{
+    font-family: Arial;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.actList-header span:last-child{
+    float: right;
+    margin-right: 10px;
+    color: rgb(239, 250, 246);
+    background-color: rgb(155, 92, 109);
+    border-radius: 5px;
+    padding: 1px;
+}
+.icon-pos{
+    font-size:1.3rem;
+    margin-right:5px;
+}
+.img-wrap{
+    max-width: 100%;
+    margin: 0 auto;
+    display:inline;
+}
+.img-parent{
+    text-align: center;
+}
+.ad-content p{
+    text-align: left;
+    margin-left:20px;
+}
+.footer p a{
+    float:right;
+    margin-right:10px;
+    font-size: 12px;
+}
+.sub-list p img{
+    width: 16px;
+    height: 16px;
+    display: inline;
+    vertical-align: text-top;
+    margin-right:2px;
+}
+.sub-list p  span{
+    float:right;
+}
+.dt_review_top{
+    overflow: hidden;
+    height: 43px;
+    background-color: #f5f5f5;
+}
+.dt_review_top .dt_review_topL{
+    display: block;
+    color: #888;
+    float: left;
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 43px;
+}
+.dt_review_top .dt_review_topR{
+    display: inline-block;
+    float: right;
+    margin-right: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.dt_review_top .dt_review_topR span{
+    display: inline-block;
+    float: right;
+    margin-left: 5px;
+    margin-top: 3px;
+    color: #0099e9;
+    font-size: 14px;
+}
+.dt_review_top .dt_review_topR a{
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 4px;
+    position: relative;
+}
+.dt_review_top .dt_review_topR a img{
+    position: absolute;
+    width: 16px;
+    height: 32px;
+    top: 0;
+    left: 0;
+}
+.ad-bottom{
+    margin-bottom: 60px;
+}
+.ad_header{
+
+}
+.ad-cd{
+    padding:20px;
+}
+.ad-md-define{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.fixed-footer{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height: 45px;
+    background-color: white;
+    text-align: center;
+
+}
+.fixed-footer ul{
+width:100%;
+}
+.fixed-footer ul li{
+    padding-top:10px;
+width:50%;
+    float: left;
+}
+.fixed-footer ul li a{
+ color:deepskyblue;
 }
