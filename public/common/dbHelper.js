@@ -107,7 +107,7 @@ var UserDao={
         return User.userIndentity.full;
         },
         findByUserName:function(name){
-            User.find({username:name}, function (err, users) {
+            User.find({'username':name}, function (err, users) {
                 return users;
             });
         },
@@ -142,15 +142,13 @@ var ActivityDAO={
         var  activityEntity  =new Activity(JsonObj);
         try{
         activityEntity.save();
+        }catch(err){
             console.log(err);
-        }catch(e){
-
         }
     },
-    findByActivityName:function(name){
-        activityname
-        Activity.find({activityname:name}, function (err, activitys) {
-            return activitys;
+    findByActivityName:function(name,res){
+        Activity.find({'activityname':name}, function (err, activitys) {
+            res.send(JSON.stringify(activitys));
         });
     },
     findById:function(id){

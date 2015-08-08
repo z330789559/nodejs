@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
     var Activity=dbHelper.Activity;
     console.log(req.query);
-  var json=  Activity.findByActivityName("张三丰");
+  var json=  Activity.findByActivityName("张三丰",res);
     var data={result:[{
         startCity: "上海",
         startTime:"2014-12-25",
@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
         memerberRank:"专家"
     }]};
     console.log(data);
-    res.send(JSON.stringify(data));
+
 }).post("/add",function(req, res){
     var Activity=dbHelper.Activity;
     Activity.saveActivity({
