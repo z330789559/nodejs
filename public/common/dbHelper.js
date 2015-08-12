@@ -4,7 +4,7 @@
 var mongoose =require('mongoose');
 var options = {
     db: { native_parser: true },
-    server: { poolSize: 5 },
+    server: { poolSize: 5 }
 };
 options.server.socketOptions = { keepAlive: 1 };
 var db=mongoose.createConnection('mongodb://127.0.0.1:27017/admin',options);
@@ -106,9 +106,9 @@ var UserDao={
         findUserIdentity:function(JsonObj){
         return User.userIndentity.full;
         },
-        findByUserName:function(name){
+        findByUserName:function(name,cb){
             User.find({'username':name}, function (err, users) {
-                return users;
+                cb(users[0]);
             });
         },
         findByCondition:function(jsonObj){
@@ -151,9 +151,9 @@ var ActivityDAO={
             res.send(JSON.stringify(activitys));
         });
     },
-    findById:function(id){
+    findById:function(id,cb){
         Activity.findById(id,function(err,activity){
-            return activity;
+            cb(activity);
         });
     },
     updateByid:function(id,obj){

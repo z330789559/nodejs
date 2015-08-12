@@ -2,11 +2,13 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var session = require('express-session')
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var activity = require('./routes/activity');
+
 var app = express();
 
 global.dbHelper=require('./public/common/dbHelper');
@@ -21,7 +23,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({ genid: function(req) {
+  var S4 = function() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4());
+}, secret: 'xinlvxing'}));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/activity', activity);

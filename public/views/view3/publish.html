@@ -1,0 +1,14 @@
+<div style="position: relative;">
+
+  <textarea id="textarea1" style="min-height: 1600px; width: 100%; display: none;">
+     &lt;p&gt;如果页面初始化时textarea中有内容，wangEditor会将该内容作为html代码，初始化到编辑器中。&lt;/p&gt;
+	</textarea>
+    <script type="text/javascript">
+        $(function(){
+            $('#textarea1').wangEditor({
+                'uploadUrl': 'http://127.0.0.1:4000/uploadImg'
+            });
+        });
+
+    </script>
+</div>
