@@ -17,25 +17,10 @@ controller.controller('View1Ctrl',['$scope',"$log","$location","activityListServ
         activityResume:"",
         activityHeaderImgUrl:""
     };
-    $scope.params={
-        startcity:$scope.startcity,
-        startTime: $scope.startTime,
-        days: $scope.days,
-        costfee:$scope.costfee
-    };
+
 
     $scope.showActivityList=function(){
-       var promise= activityListService.getActivityList($scope.params);
-
-        promise.then(function success(data) {
-                $scope.status=false;
-                $log.info(data);
-                $scope.activityList=  JSON.stringify(data);
-                $scope.redirectToList();
-            },
-            function fail(error) {
-                $log.info(error);
-             });
+        $scope.redirectToList();
       };
         $scope.redirectToList = function () {
             $location.path("index/activityList/"+$scope.startcity+"/"+$scope.startTime+"/"+$scope.days+"/"+$scope.costfee);

@@ -5,12 +5,12 @@ service.service("activityListService",['$rootScope','$q','$http','$log',function
 return{
     num:2,
     getActivityList:function(params){
-
+   debugger;
         var deferred = $q.defer();
 
         $http({
-            method: 'POST',
-            url: '/activity/add',
+            method: 'GET',
+            url: '/activity/filter',
             params : params
         })
             .success(function (response) {

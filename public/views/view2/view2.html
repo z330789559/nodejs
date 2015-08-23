@@ -2,14 +2,14 @@
 <h3 class="login-title">登陆</h3>
     <form name="myForm" novalidate>
   <div class="item item-username">
-    <input class="txt-input txt-username" name="username" type="text" ng-model="user.name" placeholder="请输入用户名/邮箱/已验证手机" autofocus="" ng-minlength="6" required>
+    <input class="txt-input txt-username" name="username" type="text" ng-model="user.name" placeholder="请输入用户名/邮箱/已验证手机" autofocus="" ng-minlength="4" required>
       <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
       <span ng-show="myForm.username.$error.required">Username is required.</span>
            <span ng-show="myForm.username.$error.minlength">minlength is 11.</span>
       </span>
   </div>
   <div class="item item-password">
-    <input class="txt-input txt-password" type="password"  name="password"ng-model="user.password" autocomplete="off"  ng-minlength="6" placeholder="请输入密码" required>
+    <input class="txt-input txt-password" type="password"  name="password"ng-model="user.password" autocomplete="off"  ng-minlength="4" placeholder="请输入密码" required>
     <b class="tp-btn"  ng-click="changeTextType();" inputtype="{[{selected}]}"  ng-class="{false:'btn-on',true :'btn-off'}[selected]"></b>
  <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
       <span ng-show="myForm.password.$error.required">password is required.</span>

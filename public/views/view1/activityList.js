@@ -9,6 +9,26 @@ controller.controller('activityList', ['$scope',"$location","$log",'$stateParams
     $scope.days=$stateParams.days;
     $scope.costfee=$stateParams.costfee;
 
+    $scope.getactivities=function(){
+        $scope.params={
+            startcity:$scope.startcity,
+            startTime: $scope.startTime,
+            days: $scope.days,
+            costfee:$scope.costfee
+        };
+        var promise= activityListService.getActivityList($scope.params);
+
+        promise.then(function success(data) {
+                $scope.status=false;
+                $log.info(data);
+                $scope.activityList=  JSON.stringify(data);
+
+            },
+            function fail(error) {
+                $log.info(error);
+            });
+    };
+
     $scope.redirectToDetail=function(data){
         $location.path("index/activityDetail/"+data);
     }

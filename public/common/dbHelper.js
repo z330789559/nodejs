@@ -39,6 +39,7 @@ var ActivitySchema = new mongoose.Schema({
     startcity : {type : String},
     activityaddress : {type : String},
     activityImg:{type : String},
+    days:    {type : Number},
     fee    : {type :Number},
     catalog  : {type : [String]},
     starttime     : {type : Date, default: Date.now},
@@ -108,12 +109,12 @@ var UserDao={
         },
         findByUserName:function(name,cb){
             User.find({'username':name}, function (err, users) {
-                cb(users[0]);
+                cb(err,users[0]._doc.username[0]);
             });
         },
-        findByCondition:function(jsonObj){
-            User.find(jsonObj, function (err, users) {
-                return users;
+        findByCondition:function(jsonObj,cb){
+            User.findOne(jsonObj,function (err, users) {
+                return cb(err,users);
             });
         },
           findById:function(id){
@@ -163,6 +164,21 @@ var ActivityDAO={
         Activity.find(jsonObj, function (err, activitys) {
             return activitys;
         });
+        //User
+        //    .find({})
+        //    .where('name.last').equals('Ghost')
+        //    .where('age').gt(17).lt(66)
+        //    .where('likes').in(['vaporizing', 'talking'])
+        //    .limit(10)
+        //    .sort('-occupation')
+        //    .select('name occupation')
+        //    .exec(callback);
+    },
+    findListByFilter:function(publisher,cb){
+        Activity.find({})
+            .where('publisher').equals(publisher)
+            .sort('-occupation')
+            .exec(cb);
         //User
         //    .find({})
         //    .where('name.last').equals('Ghost')

@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        body {
+            -webkit-backface-visibility: hidden;
+            font-family: "Microsoft YaHei", "SimSun", Verdana, Arial, Helvetica, sans-serif;
+            min-width: 296px;
+            -webkit-text-size-adjust: none;
+            background: #efeff4;
+        }
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            font-family: "Microsoft YaHei", "SimSun", Verdana, Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none outside none;
+        }
+        h1 {
+            font-size: 1.2em;
+            margin: 0.67em 0;
+        }
+        div, h1, p, ul, li, label, textarea, span {
+            word-break: break-all;
+        }
+        div, h1, p, ul, li, label, textarea, input, button, form {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        input, textarea {
+            border: 0 none;
+            outline: none;
+        }
+        input, select, textarea {
+            font-family: "Microsoft YaHei", "SimSun", Verdana, Arial, Helvetica, sans-serif;
+        }
+        input, select, button {
+            margin: 0;
+            border: none;
+            padding: 0;
+            outline: none;
+            vertical-align: middle;
+            background: transparent;
+        }
+        button, input[type='number'], input[type='text'], input[type='password'], input[type='email'], select, textarea {
+            font-family: "Microsoft YaHei", "SimSun", Verdana, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            margin: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .outSide {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .dt_join_bar {
+            width: 100%;
+            position: fixed;
+            left: 0px;
+            bottom: -53px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .loadingDiv {
+            width: 120px;
+            height: 120px;
+            background-image: url(../../images/other/loadingBj.png);
+            position: absolute;
+        }
+        .loadingDiv {
+            width: 120px;
+            height: 120px;
+            background-image: url(../../images/other/loadingBj.png);
+            position: fixed;
+        }
+        #cover {
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: #000000;
+            filter: alpha(opacity=70);
+            -moz-opacity: 0.7;
+            -khtml-opacity: 0.7;
+            opacity: 0.7;
+            z-index: 9000;
+            _position: absolute !important;
+            _height: 1000px !important;
+        }
+        #cover {
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: #000000;
+            filter: alpha(opacity=70);
+            -moz-opacity: 0.7;
+            opacity: 0.7;
+            z-index: 9000;
+        }
+        #cover2 {
+            background-color: #333333;
+            display: none;
+            left: 0px;
+            opacity: 0.8;
+            position: absolute;
+            top: 0px;
+            z-index: 1000;
+            width: 100%;
+            height: 100%;
+        }
+        #cover2 {
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: #333333;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            opacity: 0.8;
+            z-index: 1000;
+        }
+        .toast {
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 20px;
+            text-align: center;
+        }
+        #toast {
+            display: none;
+            position: fixed;
+            padding: 9px 15px;
+            background-color: #333;
+            z-index: 8000;
+            border-radius: 5px;
+        }
+        .loading_center {
+            font-size: 14px;
+            color: #000000;
+            text-align: center;
+        }
+        .loading_center {
+            font-size: 14px;
+            color: #000000;
+            text-align: center;
+        }
+        #loading_center {
+            display: none;
+            position: fixed;
+            width: 60px;
+            padding: 25px 35px;
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            z-index: 10000;
+        }
+        #loading_center {
+            display: none;
+            position: fixed;
+            width: 60px;
+            padding: 25px 35px;
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            z-index: 10000;
+        }
+        .alert {
+            font-size: 16px;
+            color: #000000;
+            line-height: 20px;
+            text-align: center;
+        }
+        #alert {
+            display: none;
+            position: fixed;
+            width: 300px;
+            z-index: 10000;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #tc_bmSuccess {
+            width: 250px;
+            background-color: #FFF;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tc_c {
+            display: none;
+            width: 330px;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+            position: fixed;
+            z-index: 3000;
+        }
+        .tc_c {
+            width: 80%;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+            position: fixed;
+            z-index: 3000;
+            padding-bottom: 20px;
+        }
+        .tc_c2 {
+            width: 100%;
+            overflow: hidden;
+            background-color: #FFF;
+            position: absolute;
+            z-index: 3000;
+            bottom: 0px;
+            padding-bottom: 5px;
+        }
+        .tc_c, .tc_c2 {
+            display: none;
+        }
+        #dt_review_box {
+            display: none;
+            position: fixed;
+            left: 0px;
+            bottom: -500px;
+            z-index: 2000;
+            width: 100%;
+            background-color: #dddddd;
+            padding-bottom: 500px;
+        }
+        #guanzhuTc {
+            display: none;
+            position: absolute;
+            width: 80%;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        #join_box {
+            padding-bottom: 0px;
+        }
+        #join_box_ph {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .dt_join_button_Table, .shareLi01, .shareLi02 {
+            overflow: hidden;
+        }
+        table.dt_join_button_Table {
+            width: 90%;
+            background: #CCC;
+            border: none;
+            border-spacing: 1px !important;
+            border-collapse: inherit !important;
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+        }
+        #share_weixin, #share_qq {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+        }
+        #share_weixin, #share_qq {
+            right: 10px;
+            top: 2px;
+            width: 260px;
+        }
+        #login {
+            position: fixed;
+            width: 80%;
+            background-color: #FFF;
+            border-radius: 8px;
+            z-index: 10000;
+            padding: 0 !important;
+            display: none;
+        }
+        a {
+            color: #333;
+            background: transparent;
+            text-decoration: none;
+        }
+        #login .tc_c_close {
+            height: 22px;
+            margin: 5px 5px 0;
+        }
+        .login_title {
+            font-size: 18px;
+            color: #000;
+            text-align: center;
+            padding: 0 0 15px !important;
+        }
+        .login_more {
+            font-size: 14px;
+            text-align: right;
+            padding: 15px 10px 10px 0;
+        }
+        #login .tc_c_close div {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        img {
+            vertical-align: top;
+            border: 0;
+        }
+        #login .tc_c_close div img {
+            width: 22px;
+            height: 44px;
+            position: static;
+        }
+        .tc_c .tc_c_close {
+            height: 30px;
+            position: relative;
+        }
+        .tc_c .tc_c_close {
+            height: 30px;
+            position: relative;
+        }
+        .tc_c .tc_c_title {
+            padding: 0 0 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+        }
+        .tc_c .tc_c_title {
+            padding: 0 0 3px;
+            text-align: center;
+            color: #000;
+        }
+        .tc_c .tc_c_nr {
+            margin: 10px 20px;
+        }
+        .tc_c .tc_c_nr {
+            margin: 10px 20px;
+        }
+        .tc_c_btnTop {
+            padding-top: 10px;
+        }
+        .tc_c .tc_c_btn {
+            overflow: hidden;
+            margin: 20px;
+        }
+        .tc_c .tc_c_btn {
+            overflow: hidden;
+            margin: 0 30px;
+        }
+        .tc_c .tc_c_btn_load {
+            display: none;
+            overflow: hidden;
+            margin: 0 30px;
+            background-color: #dbdbdb;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .tc_c .tc_c_btn_load p {
+            display: inline-block;
+            margin: 8px auto;
+        }
+        caption, th, td {
+            font-weight: normal;
+            vertical-align: middle;
+        }
+        .font02 {
+            font-size: 18px;
+        }
+        .tc_c .tc_c_btn_load p span {
+            font-size: 16px;
+            color: #444;
+        }
+        .tc_c .tc_c_btn_load p img {
+            width: 16px;
+            height: 16px;
+            float: right;
+            margin-top: 4px;
+            margin-left: 5px;
+        }
+        .blueBtn {
+            width: 80%;
+            height: 40px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .tc_c .tc_c_btn a {
+            display: block;
+            color: #fff;
+            background-color: #0099e9;
+            padding: 12px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .tc_c .tc_c_btn a {
+            display: block;
+            color: #fff;
+            background-color: #0099e9;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 8px;
+            padding: 0;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_txt {
+            color: #999;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_txt {
+            color: #444;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic {
+            text-align: center;
+            margin: 10px auto;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic {
+            text-align: center;
+            margin: 8px auto 0;
+            height: 150px;
+        }
+        .tc_c_ts {
+            display: none;
+        }
+        .tc_c .tc_c_nr .tc_c_ts {
+            text-align: center;
+            margin-top: -5px;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic .weima2 {
+            width: 150px;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic .weima2 {
+            width: 150px;
+            margin: 0 auto;
+        }
+        .tc_c .tc_c_close div {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .tc_c .tc_c_close img {
+            position: absolute;
+            width: 22px;
+            right: 8px;
+            top: 8px;
+            cursor: pointer;
+        }
+        .tc_c .tc_c_close div img {
+            width: 22px;
+            height: 44px;
+            position: static;
+        }
+        #tc_2weima .tc_c_btn_load {
+            display: none !important;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic_2 {
+            height: 200px;
+        }
+        .tc_c .tc_c_nr .tc_c_ts2 {
+            text-align: center;
+        }
+        .tc_c .tc_c_nr .tc_c_nr_pic .weima2_2 {
+            width: 200px;
+        }
+        .button_3 {
+            font-size: 16px;
+            color: #757575;
+            line-height: 20px;
+            text-align: center;
+            border: none;
+            background-color: #eeeeee;
+            padding: 10px 0;
+            border-radius: 8px;
+        }
+        #share_weixin button, #share_qq button {
+            margin-top: 25px;
+            width: 100%;
+        }
+        #share_weixin img, #share_qq img {
+            width: 260px;
+            height: 165px;
+        }
+        table.dt_join_button_Table td {
+            height: 45px;
+            background-color: #FFF;
+            vertical-align: middle;
+            text-align: center;
+            color: #666;
+        }
+        a.dt_join_button_noA {
+            color: #999;
+        }
+        a.dt_join_button_yesA {
+            color: #0099e9 !important;
+        }
+        table.dt_join_button_Table td a {
+            display: block;
+            width: 100%;
+            color: #666;
+            line-height: 45px;
+            cursor: pointer;
+        }
+        table.dt_join_button_Table td.dt_join_button_td2 {
+            height: 65px !important;
+            color: #000;
+        }
+        #cancel_ok .dt_join_button_td2 {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .tc_c2 .tc_c_btn {
+            overflow: hidden;
+            margin: 0 20px 10px;
+        }
+        .tc_c2 .blueBtn {
+            width: 100%;
+            margin: 15px 0 0;
+        }
+        .tc_c2 .tc_c_btn a {
+            display: block;
+            color: #fff;
+            background-color: #0099e9;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .tc_c2 .tc_c_btn a.quxiaoBtn {
+            background-color: #dbdbdb;
+            color: #999;
+        }
+        .tc_c .baoFail {
+            width: 170px;
+            height: 60px;
+            overflow: hidden;
+            margin: 10px auto 20px;
+            position: fixed;
+        }
+        #tc_baiNopay div.baoFail {
+            position: static;
+        }
+        .tc_c .bmTs_c {
+            text-align: center;
+            padding-top: 10px;
+        }
+        .tc_c .bmTs_c {
+            text-align: center;
+            color: #000;
+            padding: 15px 0;
+            font-size: 15px;
+        }
+        .tc_c .bmTs_c a {
+            color: #0099e9;
+        }
+        .tc_c .bmTs_c a {
+            color: #0099e9;
+        }
+        .tc_c .baoFail span {
+            float: left;
+            display: block;
+            width: 60px;
+            height: 60px;
+            background: url(../../images/other/pop_remmind_no.png) no-repeat;
+            background-size: 60px 60px;
+        }
+        .tc_c .baoFail p {
+            float: left;
+            display: inline-block;
+            line-height: 60px;
+            margin-left: 10px;
+            color: #999;
+        }
+        #tc_payQuestion .tc_c_nr {
+            margin: 10px;
+        }
+        #tc_payQuestion .tc_c_nr, #tc_noSuccess .tc_c_nr {
+            text-align: center;
+            line-height: 26px;
+        }
+        .tc_c .tc_c_btn input {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #0099e9;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .tc_c .tc_c_btn3 {
+            overflow: hidden;
+        }
+        .tc_c .tc_c_btn3 a {
+            display: inline-block;
+            height: 40px;
+            margin: 10px 0 10px 10px;
+            border: 1px solid #c1c1c1;
+            border-radius: 8px;
+            color: #666;
+            width: 45%;
+            text-align: center;
+        }
+        .tc_c2 .join_box_Xq_out {
+            overflow-y: auto;
+        }
+        .join_box_ph {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            font-size: 15px;
+            color: #999;
+            margin: 10px auto 5px;
+        }
+        .tc_c2 .tc_c_btn2 {
+            overflow: hidden;
+            margin: 0 10px 10px;
+        }
+        #xdBtn2 {
+            margin: 10px auto;
+        }
+        table .input_submit_div {
+            padding-left: 5px;
+            padding-right: 10px;
+            overflow: hidden;
+        }
+        .tc_c2 .tc_c_btn2 input {
+            width: 92%;
+            height: 40px;
+            color: #fff;
+            background-color: #0099e9;
+            border-radius: 8px;
+            float: right;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        table #a_submit_phone {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #0099e9;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+        table .qu_xiao_div {
+            padding-right: 5px;
+            padding-left: 10px;
+            overflow: hidden;
+        }
+        table .qu_Xiao {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #dbdbdb;
+            color: #999;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+        a.huoYzm_btn {
+            width: 80px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: #0099e9;
+            color: #fff;
+            font-size: 15px;
+            float: right;
+            margin-right: 10px;
+            border-radius: 8px;
+        }
+        .join_box_ph_div {
+            height: 40px;
+            padding-right: 100px;
+            padding-left: 10px;
+        }
+        .join_box_ph_div_b {
+            border: 1px solid #ccc;
+        }
+        .join_box_ph_div input {
+            height: 34px;
+            width: 100%;
+            border: 1px solid #FFF;
+            text-indent: 5px;
+            line-height: 34px;
+            position: relative;
+            font-size: 15px;
+        }
+        .tc_c2 .tc_c_close {
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+        }
+        .tc_c2 .join_box_Xq {
+            overflow-y: auto;
+        }
+        #xdBtn {
+            width: 100%;
+            background-color: #2a3138;
+            height: 57px;
+            position: fixed;
+            bottom: -10px;
+            left: -10px;
+        }
+        #xdBtn_nopay {
+            width: 100%;
+            height: 57px;
+            margin: 15px 0 0;
+        }
+        #xdBtn_nopay table {
+            margin: 8px auto 0;
+        }
+        table #a_submit_nopay {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #0099e9;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+        .tc_c2 .tc_c_btn2 a.fanHui {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-top: 8px;
+            background: url(../../images/detail/fanHui.png) no-repeat;
+            background-size: 100% auto;
+            float: left;
+        }
+        #xdBtn .fanHui {
+            float: left;
+            margin-left: 10px;
+            margin-top: 12px;
+        }
+        #xdBtn .join_Btn {
+            position: relative;
+            padding-left: 50px;
+            padding-right: 10px;
+            padding-top: 4px;
+        }
+        .tc_c2 .tc_c_btn2 a.blueBtn {
+            display: inline-block;
+            color: #fff;
+            background-color: #0099e9;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 8px;
+            float: right;
+            width: 87%;
+            margin-top: 5px;
+        }
+        #xdBtn .join_Btn #a_submit {
+            width: 100%;
+        }
+        .tc_c2 .join_box_Xq ul {
+            margin: 0;
+        }
+        .tc_c2 .join_box_Xq ul li {
+            overflow: hidden;
+            padding: 0 10px 5px;
+        }
+        .optionsName {
+            height: 30px;
+            line-height: 30px;
+            color: #000;
+            font-size: 15px;
+        }
+        .tc_c2 .join_box_Xq ul li .inpoutK {
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .tc_c2 .join_box_Xq ul li .inpoutK input {
+            width: 99%;
+            border: 1px solid #FFF;
+            color: #666;
+            margin: 8px 5px;
+        }
+        #ul_join_property li .inpoutK input {
+            font-size: 15px;
+        }
+        .tc_c2 .tc_c_close div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .tc_c2 .tc_c_close div img {
+            width: 20px;
+            height: 40px;
+            position: static;
+        }
+        .tc_c2 .tc_c_feiLi {
+            padding: 0 10px;
+            overflow-y: auto;
+        }
+        .tc_c2 .xieyi {
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        .tc_c2 .tc_c_btn a.grayBtn {
+            background-color: #ddd;
+            cursor: inherit;
+            margin: 15px auto 0;
+        }
+        .tc_c2 .xieyi span {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url(../../images/detail/pop_no2.png) no-repeat 0 0;
+            background-size: 100% auto;
+            float: left;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .tc_c2 .xieyi span.thisOver {
+            background: url(../../images/detail/subinfo_pic_check.png) no-repeat;
+            background-size: 100% auto;
+        }
+        .tc_c2 .xieyi p {
+            padding-left: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+        .tc_c2 .xieyi p a {
+            color: #0099e9;
+        }
+        .tc_c2 .tc_c_close2 p {
+            padding-left: 10px;
+        }
+        .tc_c2 .tc_c_close2 p.font02 {
+            font-size: 14px !important;
+            color: #666;
+        }
+        .tc_c2 .tc_c_close2 div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .tc_c2 .tc_c_close2 div img {
+            width: 20px;
+            height: 40px;
+        }
+        a img {
+            border: none;
+        }
+        #guanzhuTc .copyBtn {
+            overflow: hidden;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .yicopy {
+            font-size: 15px;
+            font-size: #444;
+            text-align: center;
+            padding: 15px 0;
+            color: #666;
+        }
+        .copyTs {
+            font-size: 15px;
+            font-size: #444;
+            text-align: center;
+            line-height: 20px;
+            padding-bottom: 15px;
+        }
+        .diKuang {
+            width: 100%;
+            border-top: 1px solid #ddd;
+        }
+        .iSeebtn {
+            width: 100%;
+            text-align: center;
+            padding: 0 0 15px;
+        }
+        .iSeebtn a {
+            display: inline-block;
+            padding: 10px 50px;
+            background-color: #f39339;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .diKuang p {
+            padding: 15px 20px;
+            text-align: left;
+            line-height: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+        .yicopy span {
+            font-size: 18px;
+            color: #000;
+        }
+        #guanzhuTc .copyBtn a {
+            display: block;
+            width: 70px;
+            height: 70px;
+            background: url(../../images/icon/menu04_150.png) no-repeat;
+            background-size: 70px 70px;
+            margin: 0 auto;
+        }
+        .tc_c .baoSuccess {
+            overflow: hidden;
+            text-align: center;
+        }
+        .tc_c .yediMore {
+            margin: 0 20px -10px;
+            overflow: hidden;
+        }
+        .tc_c .yediMore .yediMore_l {
+            display: inline-block;
+            float: left;
+            text-align: left;
+            width: 40%;
+        }
+        .tc_c .yediMore .yediMore_r {
+            display: inline-block;
+            float: right;
+            text-align: right;
+            width: 40%;
+        }
+        .tc_c .yediMore a {
+            color: #0099e9;
+            font-size: 15px;
+        }
+        .tc_c .baoSuccess img {
+            text-align: center;
+            width: 28%;
+            margin: 0 auto;
+        }
+        .tc_c .baoSuccess p {
+            padding-top: 10px;
+            color: #000;
+            font-size: 20px;
+        }
+        #dt_review_box_main {
+            position: relative;
+            margin: 9px 8px 8px;
+        }
+        #dt_review_box_input {
+            margin: 0 70px 0 38px;
+            border: 1px solid #ccc;
+            background-color: #FFF;
+            padding: 8px 3px 8px;
+            border-radius: 5px;
+        }
+        #dt_review_box_emo_button, #dt_review_box_emo_button_active {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 34px;
+            overflow: hidden;
+        }
+        #dt_review_box_emo_button {
+            background-color: #dddddd;
+        }
+        #dt_review_box_button {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 68px;
+            text-align: right;
+        }
+        #dt_review_box_emo {
+            display: none;
+            padding-top: 8px;
+        }
+        .clear {
+            clear: both;
+            height: 0px;
+            font-size: 0px;
+            line-height: 0;
+            overflow: hidden;
+        }
+        .button_1_disabled {
+            font-size: 18px;
+            color: #eeeeee;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid #666666;
+            background-color: #ff6600;
+            padding: 10px 0;
+        }
+        #dt_review_box_button button {
+            margin-top: 1px;
+            width: 60px;
+            height: 38px;
+            overflow: hidden;
+            font-size: 14px;
+            background-color: #0099e9;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            float: right;
+        }
+        #dt_review_box_emo_button img, #dt_review_box_emo_button_active img {
+            width: 30px;
+            height: 30px;
+            margin-top: 6px;
+        }
+        #dt_review_box_input input {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #FFF;
+            height: 22px;
+        }
+        #tc_support .tc_c_ts {
+            display: block;
+            padding: 15px 20px 0;
+            line-height: 22px;
+            font-size: 14px;
+            text-align: left;
+        }
+        #tc_support .whiteBtn1 {
+            background-color: none;
+            margin: 15px 30px 0;
+        }
+        #tc_support .whiteBtn1 a {
+            background-color: #e5e5e5;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            color: #999;
+            display: block;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+        #tc_support .tc_c_btn a {
+            font-size: 16px;
+        }
+        #tc_bmSuccess .baoSuccess {
+            width: 170px;
+            height: 60px;
+            overflow: hidden;
+            margin: 10px auto;
+        }
+        #tc_bmSuccess .baoSuccess .successDui {
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        #tc_bmSuccess .baoSuccess p {
+            float: left;
+            display: inline-block;
+            line-height: 60px;
+            font-size: 20px;
+            margin-left: 10px;
+            color: #000;
+        }
+        #alert_title {
+            padding: 8px;
+            background-color: #0099e9;
+            color: #fff;
+        }
+        #alert_text {
+            padding: 25px 10px;
+            background-color: #ffffff;
+            font-size: 15px;
+        }
+        #alert_button {
+            padding: 0 10px 10px;
+            background-color: #FFF;
+        }
+        .alert_cancel, .dt_pay_guide_cancel {
+            font-size: 14px;
+            color: #666666;
+            text-align: right;
+        }
+        #alert_cancel {
+            display: none;
+            margin-top: -4px;
+            padding: 0 10px 6px 10px;
+            background-color: #FFF;
+        }
+        #alert_button button {
+            width: 100%;
+            padding: 6px 0;
+            font-size: 14px;
+            border: 1px solid #0099e9;
+            border-radius: 5px;
+            background-color: #0099e9;
+            cursor: pointer;
+            color: #fff;
+        }
+        #loading_center img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        #loading_center img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        .loadingDiv .pImg {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        .loadingDiv .pImg {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        .loadingDiv .pTxt {
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+        .loadingDiv .pTxt {
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+        .loadingDiv .pImg img {
+            width: 30px;
+            height: 30px;
+        }
+        .loadingDiv .pImg img {
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        .dt_join_bar_outside {
+            border-top: 1px solid #d9d9d9;
+            max-width: 640px;
+            margin: 0 auto;
+            background-color: #FFF;
+            overflow: hidden;
+        }
+        .dt_join_bar_ul_wap li {
+            width: 50%;
+            height: 52px;
+            float: left;
+        }
+        .dt_join_bar_ul_wap li div, .dt_join_bar_ul_wap li div a {
+            display: block;
+            height: 52px;
+        }
+        .dt_join_bar_ul_wap li.r div a {
+            background-color: #0099e9;
+        }
+        .dt_join_bar_ul_wap li.r div a.btn_style3, .dt_join_bar_ul_wap li.r div a.btn_style3:active {
+            background-color: #c5c5c5;
+            color: #999;
+        }
+        .dt_join_bar_ul_wap li div a p {
+            display: inline-block;
+            height: 20px;
+            margin: 17px auto 0;
+        }
+        .dt_join_bar_ul_wap li div a p img {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-top: 1px;
+        }
+        .dt_join_bar_ul_wap li div a p span {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            font-size: 14px;
+            color: #333;
+            margin-left: 10px;
+        }
+        .dt_join_bar_ul_wap li.r div a p span {
+            color: #fff;
+        }
+        .dt_join_bar_ul_wap li.r div a.btn_style3 p span {
+            color: #999;
+        }
+        .dt_join_bar_ul_wap li.l div {
+            border-right: 1px solid #d9d9d9;
+        }
+        .tsUp {
+            overflow: hidden;
+            background-color: #fef3d9;
+        }
+        .iconZu {
+            overflow: hidden;
+            background-color: #FFF;
+            padding-top: 10px;
+        }
+        .dt_post_sucess {
+            display: none;
+            padding: 10px 0 0 0;
+            background-color: #FFF;
+        }
+        .detail_title {
+            background-color: #FFF;
+            padding: 15px 10px 5px;
+            overflow: hidden;
+        }
+        .hdMan {
+            overflow: hidden;
+            background-color: #FFF;
+        }
+        .detail_time_attr_join {
+            overflow: hidden;
+            background-color: #FFF;
+            padding: 10px;
+        }
+        .dt_content {
+            padding: 8px 10px;
+            line-height: 28px;
+            text-align: left;
+            font-size: 16px;
+            color: #000;
+            background-color: #FFF;
+        }
+        .dt_zan {
+            overflow: hidden;
+            padding-top: 7px;
+            line-height: 15px;
+            background-color: #FFF;
+        }
+        .dt_like_main {
+            overflow: hidden;
+            padding-top: 6px;
+            background-color: #FFF;
+        }
+        .dt_join_menu_bg {
+            overflow: hidden;
+            padding: 20px 10px 0;
+            background-color: #FFF;
+        }
+        .dt_review {
+            overflow: hidden;
+            padding: 20px 10px 0 10px;
+            background-color: #FFF;
+        }
+        .dt_carte {
+            background-color: #FFF;
+            margin: 0 auto;
+            border-top: 20px solid #FFF;
+            cursor: pointer;
+        }
+        .dt_contentSideout {
+            background-color: #FFF;
+            padding: 20px 0 0;
+        }
+        .dt_guess {
+            overflow: hidden;
+            background-color: #FFF;
+        }
+        .dt_contentSideout2 {
+            padding-top: 10px;
+        }
+        .dt_guess2 {
+            padding-bottom: 10px;
+        }
+        .ba_Bj {
+            background-color: #efeff4;
+            text-align: center;
+            height: 110px;
+        }
+        .ba_Bj img {
+            width: 120px;
+            display: inline-block;
+            margin: 13px auto 0;
+        }
+        ul.dt_guess_list_main {
+            overflow: hidden;
+        }
+        ul.dt_guess_list_main li {
+            overflow: hidden;
+            cursor: pointer;
+            height: 44px;
+        }
+        ul.dt_guess_list_main li .dt_guess_list_icon {
+            overflow: hidden;
+            float: left;
+            margin: 10px 5px 0 10px;
+            border-radius: 24px;
+        }
+        ul.dt_guess_list_main li .dt_guess_list_title {
+            display: inline-block;
+            float: left;
+            margin-top: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            height: 24px;
+            line-height: 24px;
+            text-align: left;
+            width: 70%;
+            color: #000;
+            font-size: 15px;
+        }
+        ul.dt_guess_list_main li .dt_guess_list_num {
+            color: #999;
+            display: inline-block;
+            float: right;
+            font-size: 12px;
+            height: 44px;
+            line-height: 44px;
+            margin-right: 10px;
+        }
+        ul.dt_guess_list_main li .dt_guess_list_icon span {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+        ul.dt_guess_list_main li a.party .dt_guess_list_icon span {
+            background: url(../../images/icon/party2x.png) no-repeat;
+            background-size: 24px 24px;
+        }
+        .dt_content_top {
+            overflow: hidden;
+            height: 44px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        a.dt_content_top_more {
+            font-size: 14px;
+            display: inline-block;
+            float: right;
+            margin: 15px 10px 0 0;
+            color: #0099e9;
+        }
+        .dt_content_top_doc {
+            height: 25px;
+            float: left;
+            margin: 10px 0 0 0;
+        }
+        .dt_content_top span {
+            display: inline-block;
+            float: left;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #999;
+            line-height: 44px;
+        }
+        .dt_carte_top {
+            height: 13px;
+            background: url(../../images/detail/dt_carte_topbj.png) no-repeat left;
+            margin: 0 10px;
+        }
+        .dt_carte_new {
+            margin: 0 10px;
+            position: relative;
+            border-left: 1px solid #e7e7e7;
+            border-right: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+            padding-bottom: 10px;
+        }
+        .dt_carte_new .dt_carte_pic {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            top: -5px;
+            left: 13px;
+            border-radius: 54px;
+        }
+        .dt_carte_new .dt_carte_right {
+            padding-left: 75px;
+            text-align: left;
+        }
+        .dt_carte_new .dt_carte_right .dt_carte_name2 {
+            height: 20px;
+            line-height: 20px;
+            padding-top: 8px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .dt_carte_new .dt_carte_right .dt_carte_num {
+            font-size: 14px;
+            color: #999;
+            height: 25px;
+            line-height: 25px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .dt_carte_new .dt_carte_right .dt_carte_num a {
+            font-size: 14px;
+            color: #0099e9;
+        }
+        .dt_carte_new .dt_carte_right .dt_carte_num a b {
+            font-weight: normal;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+        .dt_carte_new .dt_carte_right .dt_carte_name2 a {
+            font-size: 14px;
+            color: #0099e9;
+        }
+        .dt_carte_new .dt_carte_pic img {
+            width: 54px;
+            height: 54px;
+            border-radius: 54px;
+        }
+        .dt_review_top {
+            overflow: hidden;
+            height: 43px;
+            background-color: #f5f5f5;
+        }
+        ul.dt_review_main {
+            overflow: hidden;
+            border-top: 1px solid #e7e7e7;
+        }
+        .dt_review_more {
+            overflow: hidden;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .upding {
+            display: block;
+            width: 110px;
+            height: 20px;
+            text-align: left;
+            margin: 15px auto 10px;
+        }
+        .upding img {
+            float: left;
+            margin-top: 2px;
+            margin-right: 5px;
+            width: 14px;
+            height: 14px;
+        }
+        .dt_review_top .dt_review_topL {
+            display: block;
+            color: #888;
+            float: left;
+            margin-left: 8px;
+            font-size: 14px;
+            line-height: 43px;
+        }
+        .dt_review_top .dt_review_topR {
+            display: inline-block;
+            float: right;
+            margin-right: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .dt_review_top .dt_review_topR span {
+            display: inline-block;
+            float: right;
+            margin-left: 5px;
+            margin-top: 3px;
+            color: #0099e9;
+            font-size: 14px;
+        }
+        .dt_review_top .dt_review_topR a {
+            overflow: hidden;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin-top: 4px;
+            position: relative;
+        }
+        .dt_review_top .dt_review_topR a img {
+            position: absolute;
+            width: 16px;
+            height: 32px;
+            top: 0px;
+            left: 0px;
+        }
+        .dt_join_top {
+            overflow: hidden;
+            height: 43px;
+            background-color: #f5f5f5;
+        }
+        ul.dt_list_main {
+            overflow: hidden;
+            background-color: #f5f5f5;
+            border-top: 1px solid #e7e7e7;
+        }
+        .dt_join_more {
+            overflow: hidden;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .dt_join_more .moreBtn {
+            display: inline-block;
+            width: 100%;
+            font-size: 14px;
+        }
+        .dt_join_more .moreBtn span {
+            display: inline-block;
+            background: url(../../images/detail/form_more2x2.png) no-repeat right center;
+            padding-right: 20px;
+            background-size: 12px 12px;
+            margin: 12px auto;
+            color: #0099e9;
+            font-size: 14px;
+            height: 19px;
+            line-height: 19px;
+        }
+        ul.dt_list_main li {
+            overflow: hidden;
+            padding-left: 8px;
+        }
+        ul.dt_list_main li .dt_review_K {
+            height: 43px;
+            border-top: 1px solid #e7e7e7;
+        }
+        ul.dt_list_main li .dt_guess_item_icon {
+            overflow: hidden;
+            float: left;
+            margin: 9px 6px 0 0;
+        }
+        ul.dt_list_main li .dt_guess_item_title {
+            display: inline-block;
+            float: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: left;
+            line-height: 43px;
+            width: 60%;
+        }
+        ul.dt_list_main li .dt_guess_item_time {
+            color: #999;
+            display: inline-block;
+            float: right;
+            margin-right: 8px;
+            font-size: 12px;
+            line-height: 43px;
+        }
+        ul.dt_list_main li .dt_guess_item_title a {
+            font-size: 16px;
+            color: #0099e9;
+        }
+        ul.dt_list_main li .dt_guess_item_icon a {
+            display: inline-block;
+        }
+        ul.dt_list_main li .dt_guess_item_icon a img {
+            width: 25px;
+            height: 25px;
+        }
+        ul.dt_list_main > :first-child .dt_review_K {
+            border: none;
+        }
+        .dt_join_top .dt_join_topL {
+            display: inline-block;
+            color: #999;
+            float: left;
+            margin-left: 8px;
+            line-height: 43px;
+            font-size: 14px;
+        }
+        .dt_join_top #dt_list_title_manage {
+            background-color: #FFF;
+            border: 1px solid #0099e9;
+            font-size: 14px;
+            display: inline-block;
+            float: right;
+            padding: 0 5px 0 5px;
+            height: 25px;
+            line-height: 25px;
+            margin: 8px 5px 0 0;
+            color: #0099e9;
+        }
+        .dt_like_main_top {
+            overflow: hidden;
+            margin: 0 20px;
+        }
+        .dt_like_list {
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: left;
+            margin: 0 10px;
+            line-height: 20px;
+        }
+        .dt_like_list span {
+            display: inline-block;
+            float: left;
+            margin-top: 5px;
+            width: 14px;
+            height: 13px;
+            position: relative;
+            margin-right: 6px;
+        }
+        .dt_like_list span img {
+            width: 14px;
+            height: 13px;
+            position: absolute;
+        }
+        .dt_like_main_top img {
+            float: right;
+            height: 9px;
+            margin-right: 10px;
+        }
+        .dt_zan a.gray {
+            display: inline-block;
+            color: #999;
+            float: left;
+            margin-left: 10px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .dt_zan .dt_like {
+            display: inline-block;
+            float: right;
+            margin-right: 10px;
+            width: 50%;
+            text-align: right;
+            padding-top: 10px;
+        }
+        .dt_zan .dt_like p {
+            display: inline-block;
+            color: #0099e9;
+            cursor: pointer;
+            float: right;
+            font-size: 14px;
+            margin-left: 0px;
+        }
+        .dt_zan .dt_like .zanWk {
+            display: inline-block;
+            width: 17px;
+            height: 14px;
+            float: right;
+            margin-top: 3px;
+            position: relative;
+            overflow: hidden;
+            margin-right: 1px;
+        }
+        .dt_zan .dt_like .zanWk img {
+            position: absolute;
+            width: 14px;
+            height: 28px;
+            left: 0px;
+            top: 0px;
+        }
+        .dt_content .dt_content_pic {
+            margin: 5px auto;
+            text-align: center;
+        }
+        .dt_content .dt_content_pic img {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        a.dt_support {
+            color: #0099e9;
+        }
+        .detail_time_attr_join_gray {
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+        .detail_time_attr_join_gray .detail_Time {
+            overflow: hidden;
+            border-bottom: 1px solid #e7e7e7;
+            padding: 7px 0 5px;
+            margin-left: 8px;
+            position: relative;
+        }
+        .detail_Attr {
+            overflow: hidden;
+        }
+        .detail_time_attr_join_gray .detail_Joinnum {
+            overflow: hidden;
+            padding: 8px 0 10px;
+            margin-left: 8px;
+        }
+        .detail_time_attr_join_gray .detail_Joinnum .detail_Joinnum_t {
+            display: inline-block;
+            padding-left: 20px;
+            background: url(../../images/detail/icon_man.png) no-repeat 0 2px;
+            background-size: 14px 14px;
+            font-size: 14px;
+            color: #000;
+            padding-bottom: 5px;
+            line-height: 16px;
+        }
+        .detail_time_attr_join_gray .detail_Joinnum .detail_Joinnum_b {
+            padding: 2px 5px 0 20px;
+            font-size: 12px;
+            color: #999;
+        }
+        .dt_address_item {
+            display: block;
+            overflow: hidden;
+        }
+        .detail_time_attr_join_gray .detail_Attr .detail_Attr_K {
+            border-bottom: 1px solid #e7e7e7;
+            margin-left: 8px;
+        }
+        .dt_address_item .addressP {
+            display: block;
+            padding: 10px 10px 10px 20px;
+            line-height: 18px;
+            text-align: left;
+            color: #000;
+            font-size: 14px;
+            background: url(../../images/detail/xd_icon_5.png) no-repeat 0 12px;
+            background-size: 13px 16px;
+        }
+        .detail_time_attr_join_gray .detail_Time .icon_T {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: 0px;
+            top: 10px;
+        }
+        .detail_time_attr_join_gray .detail_Time .detail_Time_n p {
+            padding-left: 20px;
+            line-height: 20px;
+            font-size: 14px;
+            color: #000;
+        }
+        .detail_time_attr_join_gray .detail_Time .detail_Time_n p span {
+            font-size: 12px;
+            color: #999;
+        }
+        .hdMan .userPicA {
+            cursor: pointer;
+            overflow: hidden;
+            float: left;
+            margin-left: 10px;
+            width: 26px;
+            height: 26px;
+            border-radius: 26px;
+        }
+        .hdMan .hdman_r {
+            padding-left: 44px;
+            line-height: 26px;
+            padding-right: 10px;
+        }
+        .hdMan .hdman_r .yhName {
+            float: left;
+        }
+        .dt_review_item_count {
+            display: inline-block;
+            float: right;
+        }
+        .dt_review_item_count a {
+            display: inline-block;
+            float: right;
+            margin-left: 8px;
+            font-size: 13px;
+            color: #999;
+        }
+        .dt_review_item_count span {
+            display: inline-block;
+            float: right;
+            font-size: 13px;
+            color: #999;
+        }
+        .hdMan .hdman_r .yhName a.subinfo_name {
+            color: #0099e9;
+            display: inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            float: left;
+            max-width: 30px;
+            font-size: 13px;
+        }
+        .hdMan .hdman_r .yhName p {
+            display: inline-block;
+            float: left;
+            padding-left: 5px;
+            font-size: 13px;
+            color: #999;
+        }
+        .mem_K .t {
+            width: 250px;
+            height: 70px;
+            float: left;
+            margin: 33px 0 0 17px;
+        }
+        .mem_K .b {
+            float: left;
+            width: 250px;
+            height: 20px;
+            margin: 12px 10px 0 17px;
+        }
+        .mem_K .b p {
+            display: inline-block;
+            max-width: 180px;
+            text-align: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            height: 18px;
+            line-height: 18px;
+            float: left;
+            font-size: 14px;
+            color: #999;
+        }
+        .mem_K .b a {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            float: right;
+            font-size: 14px;
+            color: #0099e9;
+        }
+        .mem_K .b p span {
+            color: #b71414;
+        }
+        .mem_K .t .l {
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            float: left;
+            background: url(../../images/other/face_default_70.png);
+        }
+        .mem_K .t .r {
+            width: 170px;
+            height: 70px;
+            float: right;
+        }
+        .mem_K .t .r .mem_K_name {
+            height: 18px;
+            margin-top: 15px;
+            text-align: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .mem_K .t .r .mem_K_name a {
+            font-size: 14px;
+            color: #0099e9;
+        }
+        .hdMan .userPicA img {
+            width: 26px;
+            height: 26px;
+        }
+        .mem_K .t .l img {
+            width: 70px;
+            height: 70px;
+        }
+        .detail_title .detail_title_h1 {
+            font-size: 18px;
+            color: #000;
+            line-height: 25px;
+            word-break: break-all;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: 50px;
+        }
+        .dt_post_sucess .dt_post_sucess_button {
+            overflow: hidden;
+        }
+        .dt_post_sucess_button .button_l {
+            width: 49%;
+            float: left;
+            overflow: hidden;
+        }
+        .dt_post_sucess_button .button_r {
+            width: 49%;
+            float: right;
+            overflow: hidden;
+        }
+        .postAfterbtn_r, .postAfterbtn_l {
+            border-radius: 0 !important;
+        }
+        .dt_post_sucess_button .whiteBtn2 {
+            text-align: center;
+            margin-right: 15px;
+            margin-left: 6px;
+            background-color: #0099e9;
+            cursor: pointer;
+            margin-bottom: 10px;
+            line-height: 25px;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #fff;
+        }
+        .postAfterbtn_r a {
+            display: block;
+            width: 60px;
+            line-height: 20px;
+            background: url(../../images/detail/xd_icon_19.png) no-repeat 0 3px;
+            background-size: 16px 16px;
+            padding-left: 18px;
+            margin: 0 auto;
+        }
+        .dt_post_sucess_button .whiteBtn2 a {
+            color: #fff;
+            font-size: 14px;
+        }
+        .dt_post_sucess_button .whiteBtn1 {
+            text-align: center;
+            margin-left: 15px;
+            margin-right: 6px;
+            background-color: #f3fafe;
+            cursor: pointer;
+            margin-bottom: 10px;
+            line-height: 25px;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .postAfterbtn_l a {
+            display: block;
+            width: 70px;
+            line-height: 20px;
+            background: url(../../images/detail/xd_icon_18.png) no-repeat 0 3px;
+            background-size: 16px 16px;
+            padding-left: 20px;
+            margin: 0 auto;
+        }
+        .dt_post_sucess_button .whiteBtn1 a {
+            font-size: 14px;
+        }
+        p.yaoQingmore {
+            font-size: 16px;
+            padding-bottom: 0px;
+            padding-left: 15px;
+            text-align: left;
+        }
+        .inviteZu {
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 10px;
+        }
+        .inviteZu li {
+            overflow: hidden;
+            float: left;
+            cursor: pointer;
+            margin: 0 0 10px 0;
+            width: 25%;
+        }
+        .inviteZu li span {
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        .inviteZu li span.inviteIcon07 {
+            background: url(../../images/icon/inviteIcon07.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li p {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            text-align: center;
+        }
+        .inviteZu li span.inviteIcon06 {
+            background: url(../../images/icon/inviteIcon06.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li span.inviteIcon05 {
+            background: url(../../images/icon/inviteIcon05.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li span.inviteIcon04 {
+            background: url(../../images/icon/inviteIcon04.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li span.inviteIcon03 {
+            background: url(../../images/icon/inviteIcon03.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li span.inviteIcon02 {
+            background: url(../../images/icon/inviteIcon02.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .inviteZu li span.inviteIcon01 {
+            background: url(../../images/icon/inviteIcon01.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .tsUp p {
+            padding: 10px 15px;
+            text-align: left;
+            line-height: 20px;
+            font-size: 14px;
+            color: #b08227;
+        }
+    </style>
+</head>
+<body>
+<!--封面-->
+<!--分享图标设置 start-->
+<div style="display: none;"><img alt="" src="http://img1.hudongba.cn/static_v4/images/share/party.png"></div>
+<!--分享图标设置 end-->
+
+<div class="outSide" id="global_content">
+
+    <div class="content-body" id="content-body">
+        <!--app发布后分享按钮-->
+        <div class="tsUp" style="display: none;">
+            <p>部分功能需要升级后才能使用，请进入我→设置,检查更新并升级版本。</p>
+        </div>
+        <div class="iconZu" id="div_share_type" style="display: none;">
+            <p class="yaoQingmore">发布成功，邀请好友来参与</p>
+            <ul class="inviteZu">
+                <li onclick="_postSucess._showWin('timeline')" ontouchstart=""><span class="inviteIcon01" style="width: 63.43px; height: 63.43px;"></span><p>朋友圈</p></li>
+                <li onclick="_postSucess._showWin('wechat')" ontouchstart=""><span class="inviteIcon02" style="width: 63.43px; height: 63.43px;"></span><p>微信好友</p></li>
+                <li onclick="_postSucess._showWin('qq')" ontouchstart=""><span class="inviteIcon03" style="width: 63.43px; height: 63.43px;"></span><p>QQ</p></li>
+                <li onclick="_postSucess._showWin('weibo')" ontouchstart=""><span class="inviteIcon04" style="width: 63.43px; height: 63.43px;"></span><p>微博</p></li>
+                <li onclick="_postSucess._showWin('sms')" ontouchstart=""><span class="inviteIcon05" style="width: 63.43px; height: 63.43px;"></span><p>短信</p></li>
+                <li onclick="_postSucess._showWin('copy')" ontouchstart=""><span class="inviteIcon06" style="width: 63.43px; height: 63.43px;"></span><p>复制链接</p></li>
+                <li onclick="_postSucess._showWin('qr');" ontouchstart=""><span class="inviteIcon07" style="width: 63.43px; height: 63.43px;"></span><p>二维码</p></li>
+            </ul>
+        </div>
+        <div class="dt_post_sucess">
+            <div class="dt_post_sucess_button">
+                <div class="button_l"><div class="whiteBtn1 postAfterbtn_l" onclick="_postSucess._modify()" ontouchstart=""><a class="font03">修改本活动</a></div></div>
+                <div class="button_r"><div class="whiteBtn2 postAfterbtn_r" onclick="_manage._installApp(true);e.stopPropagation();" ontouchstart=""><a class="font03">管理活动</a></div></div>
+                <!--<div class="button_l" style="width:100%"><div  onclick="_postSucess._modify()" ontouchstart="" class="whiteBtn1"><a class="font03">修改</a></div></div>-->
+            </div>
+        </div>
+
+        <!--活动标题、头像、分享数-->
+        <div class="detail_title">
+            <h1 class="detail_title_h1" id="dt_title">20KM徒步禅心灵成长养生课堂第3期-太极之道做人之道</h1>
+        </div>
+        <div class="detail_user hdMan">
+            <div class="userPicA">
+                <a href="/timeline/xn1wp" ontouchstart="">
+                    <img class="userPic default_img" onerror="this.src='http://img1.hudongba.cn/static_v4/images/other/face_default.png'" alt="" src="http://img2.hudongba.cn/upload/_cos/userhead/160_160/201504/1611/xn1wp1429156268621.jpg" ontouchstart="">
+                </a>
+                <div class="mem_K">
+                    <div class="t">
+                        <div class="l">
+                            <a href="/timeline/xn1wp" ontouchstart="">
+                                <img class="userPic default_img" onerror="this.src='http://img1.hudongba.cn/static_v4/images/other/face_default.png'" alt="" src="http://img2.hudongba.cn/upload/_cos/userhead/160_160/201504/1611/xn1wp1429156268621.jpg" ontouchstart="">
+                            </a>
+
+                        </div>
+                        <div class="r">
+                            <p class="mem_K_name"><a href="/timeline/xn1wp" target="_blank">20KM徒步禅</a></p>
+                            <!--<p class="mem_K_style"><span>发布者星级：</span><b class="star0"></b></p>-->
+                        </div>
+                    </div>
+                    <div class="b">
+                        <p>该用户已发布 <span id="totalPost"></span> 场活动</p><a href="/timeline/xn1wp">查看 &gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hdman_r">
+                <div class="yhName">
+                    <a class="subinfo_name" id="subinfo_name" style="max-width: 214px;" href="/timeline/xn1wp" ontouchstart="">20KM徒步禅</a>
+                    <p class="fbTime">7月23日</p>
+                </div>
+                <div class="dt_review_item_count">
+                    <a class="info_share" id="info_share" style="color: rgb(153, 153, 153);">分享 53+</a><span id="info_hits">阅读 681</span>
+                </div>
+            </div>
+            <input id="postUserId36" type="hidden" value="xn1wp">
+        </div>
+
+        <!--时间、地址、报名数 start-->
+        <div class="detail_time_attr_join">
+            <div class="detail_time_attr_join_gray">
+
+
+                <div class="detail_Time">
+                    <img class="icon_T" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/icon_time2.png">
+                    <div class="detail_Time_n">
+                        <p>
+                            07/28(周二) 19:00<br>
+                            <span>07月27日 23:30 报名截止</span>
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="detail_Attr">
+                    <div class="dt_address_item dt_address_item_un" ontouchstart="" href="javascript:void(0);">
+                        <div class="detail_Attr_K"><p class="addressP addressP2">上海长宁区天山路789号天山商厦商务楼西楼8楼D座</p></div>
+                    </div>
+                </div>
+                <div class="detail_Joinnum" id="detail_Joinnum">
+                    <div class="detail_Joinnum_t"><p>已有<span>15</span>人报名</p></div>
+                    <div class="detail_Joinnum_b">
+                        <p>
+                            限<span>15</span>人报名
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--时间、地址、报名数 end-->
+
+        <!--活动详情 start-->
+        <div class="dt_content" id="dt_content"><span style="color: rgb(240, 52, 66); font-size: 16px; font-weight: bold;">20KM徒步禅推出第3期心灵成长养生课堂—走进青启太极生活馆（本活动得到青启太极大力支持）</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;"><br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">内容：</span><span style="color: rgb(240, 52, 66); font-size: 16px; font-weight: normal;">20KM徒步禅走进太极，有人会问，徒步和太极有什么关系？关系大了！</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">太极是一种动禅，在以用意为主，并由意领导动作，从而带动气的运动，却是可以养成练习者的专注力、身体松柔度，是初习禅定者一种很好的辅助运动。同时也是20KM徒步禅中行修调整练习者呼吸状态的一种训练！20KM徒步禅7月28日让我们一起走进青启太极养生馆<br></span><span style="color: rgb(240, 52, 66); font-size: 16px; font-weight: bold;">20KM徒步禅公众号（tubuchan）<br>微信号:<a class="dt_support" href="tel:594928075">594928075</a></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;"><br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">时间：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">2015年7月28日周二&nbsp;19:00-20:30<br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">地点：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">上海市长宁区天山路789号天山商厦商务楼西楼8楼D座（地铁2号线娄山关路站）青启太极生活馆<br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">交通建议：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">环保绿色出行，建议您来青启太极生活馆乘坐地铁2号线，到娄山关路站下。青启太极生活馆就在娄山关路站的地面之上。（如果您开车过来，天山商厦5元/小时的地下停车库同样方便经济。）<br>联系人：吴老师<a class="dt_support" href="tel:18916790910">18916790910</a>&nbsp;&nbsp;&nbsp;吴天临老师的电话：<a class="dt_support" href="tel:13817368288">13817368288</a><br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">费用：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">免费<br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">人数：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">不超过15人（额满为止）<br></span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;">内容及流程：</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;"><br>【第一部分】太极理论<br>什么是太极<br>太极拳的起源和门派<br>太极拳的养身功效<br>【第二部分】基本礼仪<br>太极礼仪“抱拳礼”的学习，同时体会动作准确到位的重要性<br>【第三部分】静心<br>太极拳是静修动功的一个法门，养身养心，故而练习前需要先学会静心<br>【第四部分】太极拳观赏<br>由太极老师展示国家规范套路杨式8式、杨式24式、陈式24式、32式太极剑、传统杨式9式、武当赵堡太极8式<br>【第五部分】太极拳基本功体验及招式学习<br>【第六部分】一起打太极<div class="dt_content_pic"><img style="display: inline;" src="http://img2.hudongba.cn/upload/_cos/userpartyimg/201507/23/61437649924471_party6.jpg"></div>教练简介：<br>吴天临<br>太极生活的倡导者<br>青启太极生活馆馆主<br>武当赵堡太极拳第14代传人（何俊龙掌门的亲传弟子）<br>传统太极拳名师韩鹤平老师的亲授弟子<br>多年世界500强企业高管<br>多年海外工作经历<br>多年传统行业创业合伙人<div class="dt_content_pic"><img style="display: inline;" src="http://img2.hudongba.cn/upload/_cos/userpartyimg/201507/23/31437649940087_party3.jpg"></div>钟&nbsp;鸣<br>太极生活的倡导者<br>武当赵堡太极拳第14代传人（何俊龙掌门的亲传弟子）<br>杨氏太极拳第7代传人（李传忠师父的亲传弟子）<br>太极拳名师韩鹤平老师的亲授弟子<br>太极拳名师戴炜老师的亲授弟子<br>多年外企高管<br>多年人力资源管理咨询顾问<div class="dt_content_pic"><img style="display: inline;" src="http://img2.hudongba.cn/upload/_cos/userpartyimg/201507/23/81437649950073_party8.jpg"></div></span><span style="color: rgb(240, 52, 66); font-size: 16px; font-weight: bold;">***徒步禅徒友优先参加***</span><span style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;"><br><br><br></span></div>
+        <!--活动详情 end-->
+
+        <!--收费项目统计 start-->
+        <!--收费项目统计 end-->
+
+        <!--赞 wap展示 app不展示-->
+        <div class="dt_zan">
+            <a class="gray" href="/report/party/helq?hdb_from=WapParty" ontouchstart="">举报</a>
+            <div class="dt_like" id="dt_like" ontouchstart="">
+                <a href="javascript:_like._post()" ontouchstart=""><p ontouchstart="">赞</p><span class="zanWk" ontouchstart=""><img id="img_dt_like" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/dt_like2.png"></span></a></div>
+        </div>
+        <div class="dt_like_main" id="dt_like_main" style="display: none;">
+            <div class="dt_like_main_top"><img class="zanJiao" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/zanJiao.png"></div>
+            <div class="dt_like_list" id="dt_like_list"><span><img class="zanIcon" id="icon_zan_ok2" src="http://img1.hudongba.cn/static_v4/images/detail/dt_like.png"></span></div>
+        </div>
+
+        <!--报名列表 -->
+        <a name="a_join_list"></a>
+        <div class="dt_join_menu_bg" id="dt_join_menu_bg">
+            <div class="dt_join_top" ontouchstart="">
+                <p class="dt_join_topL" id="dt_join_count"><span id="join_total">15</span>人报名</p>
+                <a id="dt_list_title_manage" style="display: none;" ontouchstart="">管理报名信息</a>
+            </div>
+            <ul class="dt_list_main" id="dt_list_main" style="display: block;"><li class="dt_review_main" id="div_join_id_ij2na" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/hazge-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" src="http://img1.hudongba.cn/images3/other/face_default.png"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/hazge-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">宋先生</a></div><p class="dt_guess_item_time">7月24日</p></div></li><li class="dt_review_main" id="div_join_id_e72na" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/vn3p6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2407/vn3p61437694574017.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/vn3p6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">张改林</a></div><p class="dt_guess_item_time">7月24日</p></div></li><li class="dt_review_main" id="div_join_id_rrbna" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/6194j-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201506/2816/6194j1435478669656.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/6194j-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">梁文亮</a></div><p class="dt_guess_item_time">7月24日</p></div></li><li class="dt_review_main" id="div_join_id_vtbna" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/fjrqe-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201505/1813/fjrqe1431925760281.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/fjrqe-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">彭海英</a></div><p class="dt_guess_item_time">7月24日</p></div></li><li class="dt_review_main" id="div_join_id_fduna" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/inkp6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2400/inkp61437669745064.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/inkp6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">张彤清</a></div><p class="dt_guess_item_time">7月24日</p></div></li><li class="dt_review_main" id="div_join_id_9s0na" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/w9tp6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2323/w9tp61437665655222.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/w9tp6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">吴钰</a></div><p class="dt_guess_item_time">7月23日</p></div></li><li class="dt_review_main" id="div_join_id_sp0na" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/i34wj-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/0921/i34wj1436448598555.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/i34wj-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">付莹</a></div><p class="dt_guess_item_time">7月23日</p></div></li><li class="dt_review_main" id="div_join_id_6u0na" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/jg8tp-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2322/jg8tp1437663479989.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/jg8tp-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">雷佳佳</a></div><p class="dt_guess_item_time">7月23日</p></div></li><li class="dt_review_main" id="div_join_id_a8s2a" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/opap6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2322/opap61437660623101.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/opap6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">梁晶晶</a></div><p class="dt_guess_item_time">7月23日</p></div></li><li class="dt_review_main" id="div_join_id_j6s2a" ontouchstart=""><div class="dt_review_K"><div class="dt_guess_item_icon"><a href="/timeline/eaap6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart=""><img class="default_img" onerror="this.src='http://img1.hudongba.cn/images/face_default.png'" src="http://img1.hudongba.cn/upload/_cos/userhead/160_160/201507/2322/eaap61437660497649.jpg"></a></div> <div class="dt_guess_item_title dt_loadNew" style="max-width: 350px;"><a href="/timeline/eaap6-PCArticleHeader.html?hdb_from=WapPartyList" ontouchstart="">丁欣</a></div><p class="dt_guess_item_time">7月23日</p></div></li></ul>
+            <div class="dt_join_more" id="join_loading" style="display: block;"><a class="moreBtn" ontouchstart=""><span>展开更多报名</span></a></div>
+        </div>
+
+        <!--QQ群-->
+
+
+
+
+        <!--评论-->
+        <div class="dt_review" id="dt_review">
+            <div class="dt_review_top" onclick="_reviewBox._post()" ontouchstart="">
+                <p class="dt_review_topL" id="dt_review_count">快来发表你的评论</p>
+
+                <p class="dt_review_topR" ontouchstart=""><span ontouchstart="">评论</span><a><img title="评论" src="http://img1.hudongba.cn/static_v4/images/detail/dt_review.png"></a></p>
+
+                <a name="plWei" id="plWei"></a>
+            </div>
+            <ul class="dt_review_main" id="dt_review_main" style="display: none;"></ul>
+            <div class="dt_review_more" id="review_loading" style="display: none;"><span class="upding"><img src="http://img1.hudongba.cn/images3/loading2.gif">正在加载...</span></div>
+        </div>
+
+        <!--发布者信息-->
+        <div class="dt_carte" id="dt_carte" style="display: none;" ontouchstart="">
+            <div class="dt_carte_top"></div>
+            <div class="dt_carte_new">
+                <input id="input_user_id" type="hidden" value="xn1wp">
+                <div class="dt_carte_pic" onclick="_g('/timeline/xn1wp')">
+                    <img onerror="this.src='http://img1.hudongba.cn/static_v4/images/other/face_default.png'" src="http://img2.hudongba.cn/upload/_cos/userhead/160_160/201504/1611/xn1wp1429156268621.jpg" ontouchstart="">
+                </div>
+                <div class="dt_carte_right">
+                    <div class="dt_carte_name2"><a class="dt_carte_name2_A" href="/timeline/xn1wp" ontouchstart="">20KM徒步禅</a></div>
+                    <div class="dt_carte_num">我已发布<span>-</span>条互动　<a class="dt_carte_look_A" href="/timeline/xn1wp" ontouchstart="">查看 <b>&gt;</b></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!--猜你喜欢-->
+        <div class="dt_contentSideout" id="sameKindRecommend">
+            <div class="dt_content_top">
+                <a class="dt_content_top_more" onclick="goMore()" href="javascript:void(0)" ontouchstart="">更多 &gt;</a>
+                <img class="dt_content_top_doc" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/blue_tiao.png">
+                <span>相似活动</span>
+            </div>
+        </div><div class="dt_guess">                   <ul class="dt_guess_list_main"><li><a class="dt_guess_list party" href="/party/fxjg-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 357px;"><span>悦跑上海之世纪公园篇</span></div><p class="dt_guess_list_num">44报名</p></a></li><li><a class="dt_guess_list party" href="/party/5qog-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 364px;"><span>藤妈有约 ｜相约璀璨上海 ｜“学做智慧父母，造福孩子一生”</span></div><p class="dt_guess_list_num">9报名</p></a></li><li><a class="dt_guess_list party" href="/party/b93g-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 357px;"><span>女王印象之爱上小黑裙</span></div><p class="dt_guess_list_num">26报名</p></a></li></ul></div>
+
+        <div class="dt_contentSideout dt_contentSideout2" id="hotRecommend">
+            <div class="dt_content_top">
+                <a class="dt_content_top_more" onclick="goMore()" href="javascript:void(0)" ontouchstart="">更多 &gt;</a>
+                <img class="dt_content_top_doc" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/blue_tiao.png">
+                <span>精选活动</span>
+            </div>
+        </div><div class="dt_guess dt_guess2">             <ul class="dt_guess_list_main"><li><a class="dt_guess_list party" href="/party/d8jm-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 350px;"><span>招募男童合唱团</span></div><p class="dt_guess_list_num">144报名</p></a></li><li><a class="dt_guess_list party" href="/party/lr9q-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 357px;"><span>活动预告 | 0815（周六）基于绩效改进目标 培训经理地图  一天课程</span></div><p class="dt_guess_list_num">17报名</p></a></li><li><a class="dt_guess_list party" href="/party/mcn4-DInteraction.html"><div class="dt_guess_list_icon"><span></span></div><div class="dt_guess_list_title dt_loadNew" style="max-width: 357px;"><span>小鲜肉求包养艺术多肉植物展{万盆多肉来就送}</span></div><p class="dt_guess_list_num">37报名</p></a></li></ul></div>
+
+        <!--互动吧图标 start-->
+        <div class="ba_Bj" id="ba_Bj"><a href="/" ontouchstart=""><img title="互动吧 让世界不再孤单" src="http://img1.hudongba.cn/static_v4/images/detail/ba_Zi2.png"></a></div>
+        <!--互动吧图标 end-->
+
+    </div>
+
+</div>
+<!--吸底按钮-->
+<div class="dt_join_bar" id="dt_join_bar" style="bottom: 0px;">
+    <div class="dt_join_bar_outside">
+        <ul class="dt_join_bar_ul_wap">
+            <li class="l"><div><a href="/post" ontouchstart=""><p><img class="dt_join_bar_icon" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/icon_add.png"><span>我也要发活动</span></p></a></div></li>
+            <li class="r"><div id="dt_join_bar_title_mb"><a class="btn_style3" href="javascript:void(0)" ontouchstart=""><p><img class="dt_join_bar_icon" alt="" src="http://img1.hudongba.cn/static_v4/images/detail/xd_icon_8.png"><span>人数已满</span></p></a></div></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var _info={
+        _id:"helq",
+        _type:"party",
+        _title:"20KM徒步禅心灵成长养生课堂第3期-太极之道做人之道",
+        _shareUid:"0hzgu",
+        _power:"0",
+        _join:"2",
+        _lock:true,
+        _payItemMoney:"0",
+        _state:"5",
+        _postUid:"xn1wp",
+        _isPay:"0",
+        _verify:"-1",
+        _mobileVerify:"0",
+        _verifyMobile:"",
+        _img1Url:"http://img1.hudongba.cn",
+        _needNewPage : "0",
+        _coverImageUrl : ""
+    };
+    (function(){
+        dataForShare.weixin_icon="http://img1.hudongba.cn/images/share/party_weixin_msg_3.png";
+        dataForShare.weixin_icon_android="http://img1.hudongba.cn/images/share/party_qq_3.png";
+        dataForShare.weixin_tl_icon="http://img1.hudongba.cn/images/share/party_weixin_tl_3.png";
+        dataForShare.weixin_url="http://www.hudongba.mobi/party/helq?h_share_uid=&hdb_from=WXShare";
+        dataForShare.qq_icon="http://img1.hudongba.cn/images/share/party_qq_3.png";
+        dataForShare.weibo_icon="http://img1.hudongba.cn/images/share/party_weibo_3.png";
+        dataForShare.url="http://www.hudongba.mobi/party/helq";
+        dataForShare.title="20KM徒步禅心灵成长养生课堂第3期-太极之道做人之道";
+        dataForShare.description="20KM徒步禅推出第3期心灵成长养生课堂—走进青启太极生活馆（本活动得到青启太极大力支持）内容：20KM徒步禅...".replace(/\s/g,"");
+        dataForShare.description=dataForShare.description || dataForShare.title;
+        dataForShare.sms="快来看看这个活动： http://www.hudongba.mobi/party/helq?hdb_from=";
+        dataForShare.callback=function(){_$(_api3._shareCount,"info_id="+_info._id+"&info_type="+_info._type+"&share_url="+dataForShare.weixin_url);};
+        appInfo.app_v = 2.1;
+        appInfo.info_v = 4.02;
+        appInfo.system = "mobile_othe";
+    })();
+</script>
+<div class="loadingDiv" style="display: none;"><p class="pImg"><img src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></p><p class="pTxt"></p></div>
+<div id="cover"></div>
+<div id="cover2"></div>
+<div class="toast" id="toast"></div>
+<div class="loading_center" id="loading_center">
+    <div><img src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></div>
+    <div id="loading_center_text"></div>
+</div>
+<div class="alert" id="alert">
+    <div id="alert_title"></div>
+    <div id="alert_text"></div>
+    <div id="alert_button"><button class="button_3" id="alert_button_ok" ontouchstart=""></button></div>
+    <div class="alert_cancel" id="alert_cancel" onclick="_alert._hide()" ontouchstart=""></div>
+</div>
+<div id="tc_bmSuccess" style="left: 50%; top: 50%; margin-top: -40px; margin-left: -125px; display: none; position: fixed; z-index: 9999;">
+    <div class="baoSuccess"><img class="successDui" src="http://img1.hudongba.cn/static_v4/images/other/pop_remmind_yes.png"><p id="sucess_text"></p></div>
+</div>
+<div class="tc_c" id="tc_support">
+    <div class="tc_c_ts"><p>你将要打开一个非互动吧页面，建议不要在该网页输入互动吧账号、银行资料等隐私信息。</p></div>
+    <div class="tc_c_btn tc_c_btnTop"><a onclick="_support._ok()" href="javascript:void(0);" ontouchstart="">继续访问</a></div>
+    <div class="whiteBtn1"><a onclick="_support._hide()" href="javascript:void(0);" ontouchstart="">取消</a></div>
+</div>
+<div id="dt_review_box" style="display: none;">
+    <div id="dt_review_box_main">
+        <div id="dt_review_box_input"><input class="input" id="dt_review_form_content" onfocus="_reviewBox._focus()" onblur="_reviewBox._blur()" oncut="return false" oncopy="return false" onpaste="return false" oncontextmenu="return false" oninput="_reviewBox._inputed()" type="text" maxlength="200" placeholder="评论：" ontouchstart="_reviewBox._touch()" onpropertychange="_reviewBox._inputed()"></div>
+        <div id="dt_review_box_emo_button_active"><img src="http://img1.hudongba.cn/static_v4/images/other/i-emo.fw_on.png"></div><div id="dt_review_box_emo_button" onclick="_reviewBox._showEmo()" ontouchstart=""><img src="http://img1.hudongba.cn/static_v4/images/other/i-emo.fw.png"></div>
+        <div id="dt_review_box_button"><button class="button_1_disabled" id="dt_review_form_post" onclick="_review._post()" ontouchstart="">发送</button></div>
+        <div id="dt_review_box_emo" style="display: none;"></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="tc_c" id="tc_chengNopay">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_joinAfter._hide('tc_chengNopay')" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="baoSuccess"><img src="http://img1.hudongba.cn/static_v4/images/other/pop_remmind_yes.png"><p class="font02">报名成功</p></div>
+    <p class="bmTs_c font03">点击获取<a onclick="_joinAfter._joinAfterQr()" href="javascript:void(0);" ontouchstart="">报名凭证</a></p>
+    <div class="tc_c_btn" ontouchstart="">
+        <a class="blueBtn font02" onclick="_joinAfter._look()" ontouchstart="">查看报名结果</a>
+    </div>
+    <div class="yediMore">
+        <div class="yediMore_l"> <a class="font04" href="/post?area_id=-1&amp;area_name=" ontouchstart="">我要发布</a></div>
+        <div class="yediMore_r"><a class="font04" href="/find?hdb_from=&#10;&#9;  WapEnrollParty&#10;&#9;  " ontouchstart="">查看更多</a></div>
+    </div>
+</div>
+
+<!--关注公众号弹窗-->
+<div id="guanzhuTc">
+    <div class="copyBtn"><a onclick="_tc._hide('guanzhuTc');" href="javascript:void(0);"></a></div>
+    <p class="yicopy">微信公众号：<span>hudong_ba</span></p>
+    <p class="copyTs">请打开微信客户端<br>搜索并添加微信号</p>
+    <div class="diKuang">
+        <p class="tc_ts2">点击微信首页右上角加号“+”<br>
+            选择“添加朋友”，输入hudong_ba，<br>
+            搜索进入互动吧介绍页，点击底部“关注”。</p>
+    </div>
+    <div class="iSeebtn"><a onclick="_tc._hide('guanzhuTc');" href="javascript:void(0);">知道了</a></div>
+</div>
+
+<!--添加封面弹窗-->
+<div class="tc_downApp" id="tc_downApp2" style="display: none;">
+    <div class="close"><a onclick="_tc._hide('tc_downApp2');" href="javascript:void(0)"><img src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png"></a></div>
+    <div class="txt">打开互动吧App，在管理我发布的列表，打开需要添加封面的活动，点击添加封面按钮即可，如果你还未安装互动吧App，可扫描下方二维码，进行安装。</div>
+    <div class="maPic">
+        <img src="http://img1.hudongba.cn/static_v4/images/other/ma03.jpg">
+        <a class="xia_i" onclick="_downloadObj._iPhone()" href="javascript:void(0);"><span>iPhone下载</span></a>
+        <a class="xia_a" onclick="_downloadObj._android()" href="javascript:void(0);"><span>Android下载</span></a>
+    </div>
+</div>
+<!--修改封面弹窗-->
+<div class="tc_downApp" id="tc_downApp3" style="display: none;">
+    <div class="close"><a onclick="_tc._hide('tc_downApp3');" href="javascript:void(0)"><img src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png"></a></div>
+    <div class="txt">打开互动吧App，在管理我发布的列表，打开需要修改封面的活动，点击修改封面按钮即可，如果你还未安装互动吧App，可扫描下方二维码，进行安装。</div>
+    <div class="maPic">
+        <img src="http://img1.hudongba.cn/static_v4/images/other/ma03.jpg">
+        <a class="xia_i" onclick="_downloadObj._iPhone()" href="javascript:void(0);"><span>iPhone下载</span></a>
+        <a class="xia_a" onclick="_downloadObj._android()" href="javascript:void(0);"><span>Android下载</span></a>
+    </div>
+</div>
+<input name="party_id" id="hide_party_id" type="hidden">
+<input id="hide_verify_mobile" type="hidden" value="0">
+<input name="h_share_uid" id="hide_h_share_uid" type="hidden">
+<input name="pay_item_id" id="hide_pay_item_id" type="hidden">
+<input name="enroll_option" id="hide_enroll_option" type="hidden">
+<input name="big_name" id="hide_big_name" type="hidden">
+<input name="mobile" id="hide_mobile" type="hidden">
+<div class="tc_c2" id="join_box_fee">
+    <div class="tc_c_close tc_c_close2"><p class="font02">请在以下收费项目中选择：</p><div><img title="关闭" onclick="_payItemBox._hide()" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <ul class="tc_c_feiLi" style="max-height: 144px;">
+    </ul>
+    <div class="xieyi">
+        <span class="thisOver"></span>
+        <p class="font03">我已阅读<a href="/app/pay" target="_blank">《互动吧支付协议》</a>，并确认活动真实性，同意支付报名费。</p>
+    </div>
+    <div class="tc_c_btn" ontouchstart="">
+        <a class="blueBtn font02" onclick="_payItemBox._next()" href="javascript:void(0);" ontouchstart="">下一步</a>
+        <a class="grayBtn font02" style="display: none;" href="javascript:void(0);">下一步</a>
+    </div>
+</div>
+
+<div class="tc_c2" id="join_box">
+    <div class="join_box_Xq_out">
+        <div class="tc_c_close"><div><img title="关闭" onclick="_joinBox._hide()" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+        <div class="join_box_Xq">
+            <ul class="pop_massage" id="ul_join_property">
+
+
+
+
+                <li type="danH">
+                    <div class="optionsName">姓名</div>
+                    <div class="inpoutK">
+                        <input class="font0" id="input_pro_id_1" onblur="_payItemBox._setTemp('party_pay_item_id_1',$(this).val())" type="text" maxlength="20" value="" ontouchstart="_joinBox._touch()" propertyid="1">
+                    </div>
+                </li>
+
+
+
+
+                <li type="danH">
+                    <div class="optionsName">手机</div>
+                    <div class="inpoutK">
+                        <input class="font0" id="input_pro_id_2" onblur="_payItemBox._setTemp('party_pay_item_id_2',$(this).val())" type="text" maxlength="20" value="" ontouchstart="_joinBox._touch()" propertyid="2">
+                    </div>
+                </li>
+
+
+
+
+                <!--上传图片
+                <li class="pic">
+                  <div class="optionsName">上传两张图片</div>
+                  <div class="inpoutK">
+                    <a href="javascript:void(0);" onclick="_joinPic._show();" class="join_box_pic_add"><span></span></a>
+                  </div>
+                </li>-->
+
+            </ul>
+        </div>
+
+        <div class="tc_c_btn2" id="xdBtn" ontouchstart="">
+            <a title="返回" class="fanHui" onclick="_joinBox._prev()" href="javascript:void(0);" ontouchstart=""></a>
+            <div class="join_Btn">
+                <input class="blueBtn" id="input_submit" style="display: none;" type="submit" value="我要报名">
+                <a class="blueBtn font02" id="a_submit" style="display: none;" onclick="_joinForm._post('party')" href="javascript:void(0);" ontouchstart="">我要报名</a>
+            </div>
+        </div>
+
+        <div class="tc_c_btn2" id="xdBtn_nopay" style="display: none;" ontouchstart="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td><div class="input_submit_div"><a id="a_submit_nopay" onclick="_joinForm._post('party')" href="javascript:void(0);" ontouchstart="">报名</a></div></td>
+                </tr>
+                </tbody></table>
+        </div>
+
+    </div>
+</div>
+
+<!--<div id="join_box_pic_tc">
+  <ul>
+    <li><a href="javascript:void(0);">拍 照</a></li>
+    <li><a href="javascript:void(0);">从相册选择</a><input type=file accept="image/*"></li>
+    <li><a href="javascript:void(0);" onclick="_joinPic._hide();">取 消</a></li>
+  </ul>
+</div>-->
+
+<div class="tc_c2" id="join_box_ph">
+    <div class="join_box_Xq_out">
+        <div class="join_box_ph"><p>验证码已发送至手机号<span></span></p></div>
+        <div class="join_box_ph_Xq">
+            <a class="huoYzm_btn" onclick="_tellPhone._post()" href="javascript:void(0);">重发</a>
+            <div class="join_box_ph_div"><div class="join_box_ph_div_b"><input class="zc_sjK" id="rg2_form_yzm" type="text" placeholder="输入验证码"></div></div>
+        </div>
+        <div class="tc_c_btn2" id="xdBtn2" ontouchstart="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td>
+                        <div class="qu_xiao_div">
+                            <a class="qu_Xiao" onclick="_phoneBox._hide()" href="javascript:void(0);" ontouchstart="">取消</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input_submit_div">
+                            <input class="blueBtn" id="input_submit_phone" style="display: none;" type="submit" value="确定">
+                            <a id="a_submit_phone" onclick="_joinForm._post('party')" href="javascript:void(0);" ontouchstart="">确定</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody></table>
+        </div>
+    </div>
+</div>
+<div class="tc_c" id="tc_baiNopay">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_joinAfter._hide('tc_baiNopay')" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="baoFail"><span></span><p class="font02">报名失败</p></div>
+    <p class="bmTs_c font04">请检查网络，并<a onclick="history.go(0)" href="javascript:void(0);">刷新</a></p>
+</div>
+<div class="tc_c" id="tc_payQuestion">
+    <input id="orderId" type="hidden">
+    <div class="tc_c_close"></div>
+    <div class="tc_c_title"><p class="font02">请在新打开的页面上完成付款</p></div>
+    <div class="tc_c_nr">
+        <p class="tc_c_nr_txt font03">付款完成前请不要关闭此窗口</p>
+        <p class="tc_c_nr_txt font03">完成付款后请根据您的情况点击下面按钮</p>
+    </div>
+    <div class="tc_c_btn3">
+        <a class="font02" onclick="_joinAfter._checkPayOrder()" href="javascript:void(0);" ontouchstart="">已完成付款</a>
+        <a class="font02" onclick="_joinAfter._checkPayOrder()" href="javascript:void(0);" ontouchstart="">付款遇到问题</a>
+    </div>
+</div>
+<form id="form_order_repeat" onsubmit="return _joinAfter._repeat()" method="post" target="_blank">
+    <div class="tc_c" id="tc_noSuccess">
+        <div class="tc_c_close"></div>
+        <div class="tc_c_title"><p class="font02">支付未成功</p></div>
+        <div class="tc_c_nr">
+            <p class="tc_c_nr_txt font03">客服电话：400-0821-222</p>
+        </div>
+        <div class="tc_c_btn" ontouchstart=""><input type="submit" value="重新支付"></div>
+    </div>
+</form>
+<div class="tc_c" id="tc_baiNopay">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_joinAfter._hide('tc_baiNopay')" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="baoFail"><span></span><p class="font02">报名失败</p></div>
+    <p class="bmTs_c font04">请检查网络，并<a onclick="history.go(0)" href="javascript:void(0);">刷新</a></p>
+</div>
+<div class="tc_c2" id="dt_join_bar_list" style="left: 174.5px;">
+    <div class="tc_c_btn"><a class="blueBtn font02" onclick="_joinBar._joinqQr()" ontouchstart="">查看报名凭证</a></div>
+    <div class="tc_c_btn"><a class="quxiaoBtn font02" onclick="_joinBar._cancel()" ontouchstart="">取消报名</a></div>
+    <div class="tc_c_btn"><a class="quxiaoBtn font02" onclick="_joinBar._hide()" ontouchstart="">取消</a></div>
+</div>
+<table class="dt_join_button_Table" id="cancel_ok" border="0" cellspacing="1" cellpadding="0">
+    <tbody>
+    <tr>
+        <td class="dt_join_button_td2 font02" colspan="2">确定取消报名吗？</td>
+    </tr>
+    <tr>
+        <td><a class="dt_join_button_yesA font03" onclick="_joinBar._cancelYes();" ontouchstart="">确定</a></td>
+        <td><a class="dt_join_button_noA font03" onclick="_joinAfter._hide();" ontouchstart="">取消</a></td>
+    </tr>
+    </tbody>
+</table>
+<div id="div_topbar_title" style="display: none;">活动</div>
+<div id="share_weixin" onclick="_shareInWeixin._hide()">
+    <div><img id="share_weixin_guide"></div>
+    <div><button class="button_3" ontouchstart="">关闭提示</button></div>
+</div>
+<div id="share_qq" onclick="_shareInQq._hide()">
+    <div><img id="share_qq_guide"></div>
+    <div><button class="button_3" ontouchstart="">关闭提示</button></div>
+</div>
+<div class="tc_c" id="tc_2weima">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_joinQr._hide()" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="tc_c_title"><p class="font02">报名凭证</p></div>
+    <div class="tc_c_nr">
+        <p class="tc_c_nr_txt font03" id="p_dt_title"></p>
+        <div class="tc_c_nr_pic tc_c_nr_pic_2"><img class="weima2 weima2_2" id="join_qr_img" src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></div>
+        <div class="tc_c_ts font04">长按图片保存</div>
+        <div class="tc_c_ts2 font04">现场验票时请出示</div>
+    </div>
+    <div class="tc_c_btn" onclick="_joinQr._download()" ontouchstart=""><a class="font02">保存</a></div>
+    <div class="tc_c_btn_load" ontouchstart=""><p><span class="font02">正在保存</span><img class="tc_c_btn_loading" src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></p></div>
+</div>
+<div class="tc_c" id="share_qr" style="dispaly: none;">
+    <div class="tc_c_close"></div>
+    <div class="tc_c_title"><p class="font02">发送给好友</p></div>
+    <div class="tc_c_nr">
+        <p class="tc_c_nr_txt font03 txtP">1. 使用微信/手机QQ/微博客户端扫描以下二维码</p>
+        <div class="tc_c_nr_pic"><img class="weima2" id="share_qr_img" src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></div>
+        <p class="tc_c_nr_txt font03 txtP">2. 使用这些客户端的分享功能将信息发送给好友</p>
+    </div>
+    <div class="tc_c_btn" ontouchstart=""><a class="font02" onclick="_qr._hide()" ontouchstart="">关闭提示</a></div>
+</div>
+<div class="tc_c" id="share_qr_1">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_qr._hide()" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="tc_c_title"><p class="font02">分享二维码</p></div>
+    <div class="tc_c_nr">
+        <p class="tc_c_nr_txt font03" id="p_dt_title"></p>
+        <div class="tc_c_nr_pic"><img class="weima2" id="share_qr_1_img" src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></div>
+        <div class="tc_c_ts font04">长按图片保存</div>
+        <p class="tc_c_nr_txt font03" id="p_dt_title">可用于印刷品、幻灯片等其他方式的宣传</p>
+    </div>
+    <div class="tc_c_btn" onclick="_qr._download()" ontouchstart=""><a class="font02">保存</a></div>
+    <div class="tc_c_btn_load" ontouchstart=""><p><span class="font02">正在保存</span><img class="tc_c_btn_loading" src="http://img1.hudongba.cn/static_v4/images/other/loading2.gif"></p></div>
+</div>
+<div id="login">
+    <div class="tc_c_close"><div><img title="关闭" onclick="_login._hide()" src="http://img1.hudongba.cn/static_v4/images/other/share_qr_close3.png" ontouchstart=""></div></div>
+    <div class="login_title">离成功只差登录</div>
+    <div id="login_button"></div>
+    <div class="login_more"><a class="gray" href="javascript:_g(_link._login)">使用其它方式登录</a></div>
+</div>
+<div id="seo" style="height: 1px; overflow: hidden; margin-top: -1px;">
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/">互动吧</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/showinfo/page/1">活动列表</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post">互动吧-发布首页</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post/vote">互动吧-发布投票</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post/party">互动吧-发布活动</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post/article">互动吧-发布文章</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post/recruit">互动吧-发布招募</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/post/job/0">互动吧-发布招聘</a>
+    <a style="color: rgb(221, 221, 221); font-size: 1px;" href="http://www.hudongba.mobi/hot">互动吧-热门活动</a>
+</div>
+<script src="http://static.hudongba.cn/static_v4/js/lib/jquery-1.7.2.min.js"></script>
+<!--地图定位js
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=dcb1fc135d3e1940d7d2105a97201d89"></script>-->
+<script src="http://static.hudongba.cn/static_v4/js/comm_150818_1.js"></script>
+<script src="http://static.hudongba.cn/static_v4/js/mb/detail_mb_150814_3.js"></script>
+<script>//移动端百度统计
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?5d111b19bcde9145b2cb96a1518abc63";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+    var virtualAr = [];
+    $(document).ready(function(){
+        _joinLoading._init();
+        _manage._init();
+        _joinForm._init('party');
+        if(_user._inWeixin()){
+            document.title=dataForShare.title;
+        }
+        $("[v_src]").each(function(){
+            var vsrc=$(this).attr("v_src");
+            $(this).attr("src",vsrc);
+        });
+    });
+    _joinForm._getCacheValue();
+</script>
+</body>
+</html>
+
+</html>

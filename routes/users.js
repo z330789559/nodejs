@@ -18,7 +18,7 @@ router.get('activity/:name', function(req, res, next) {
     };
     User.findByUserName(req.params.name,getUser);
 
-}).get('/add', function(req, res, next) {
+}).post('/add', function(req, res, next) {
     var User=dbHelper.User;
     var doc={
         username :"zhangsan",

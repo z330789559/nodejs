@@ -1,14 +1,60 @@
 <div style="position: relative;">
-
-  <textarea id="textarea1" style="min-height: 1600px; width: 100%; display: none;">
-     &lt;p&gt;如果页面初始化时textarea中有内容，wangEditor会将该内容作为html代码，初始化到编辑器中。&lt;/p&gt;
+   <div>
+       <h3 class="pb_top"><span>请填写您要发布的内容:</span><a href="" class="save_publish">保存</a><a href="" class="confirm_publish" ng-click="submit();">发布</a></h3>
+       <span ng-show="disable" style="color:red;">必须先保存!</span>
+       <textarea id="content-copy" style="width:100px;height:20px;display: none;"></textarea>
+      <div class="form-ground">
+          <div class="form-compent">
+          <label for="caption">标题</label>
+          <input type="text" id="caption" name="caption" ng-model="caption" placeholder="标题"/>
+          </div>
+          <div class="form-compent">
+              <label for="publishman">发布人</label>
+              <input type="text" id="publishman"  name="publishman" ng-model="publishman" placeholder="发布人"/>
+          </div>
+          <div class="form-compent">
+              <label for="publiDate">发布日期</label>
+              <input type="date" id="publiDate"  name="publiDate" ng-model="publiDate" placeholder="发布日期"/>
+          </div>
+          <div class="form-compent">
+              <label for="activityStart">活动开始时间</label>
+              <input type="date" id="activityStart"  name="activityStart" ng-model="activityStart" placeholder="活动开始时间"/>
+          </div>
+          <div class="form-compent">
+              <label for="subscriplimittime">报名截止时间</label>
+              <input type="date" id="subscriplimittime"  name="subscriplimittime" ng-model="subscriplimittime" placeholder="报名截止时间"/>
+          </div>
+          <div class="form-compent">
+              <label for="activityCity">活动地点</label>
+              <input type="text" id="activityCity"  name="activityCity" ng-model="activityCity" placeholder="活动地点"/>
+          </div>
+          <div class="form-compent">
+              <label for="activitylimitperson">活动名额</label>
+              <input type="text" id="activitylimitperson"  name="activitylimitperson" ng-model="activitylimitperson" placeholder="活动名额"/>
+          </div>
+          <div class="form-compent">
+              <label for="costfee">活动费用</label>
+              <input type="text" id="costfee"  name="costfee" ng-model="costfee" placeholder="活动费用"/>
+          </div>
+          <div class="form-compent">
+              <label for="activitycatalog">活动类型</label>
+              <input type="text" id="activitycatalog" myTextarea name="activitycatalog" ng-model="activitycatalog" placeholder="活动类型"/>
+          </div>
+      </div>
+   </div>
+     <textarea id="content" name="content" ng-model="content" style="min-height: 1600px; width: 100%; display: none;">
 	</textarea>
     <script type="text/javascript">
         $(function(){
-            $('#textarea1').wangEditor({
+            $('#content').wangEditor({
                 'uploadUrl': 'http://127.0.0.1:4000/uploadImg'
             });
         });
+        $(".save_publish").on("click",function(){
+          var content=  $("#content").val();
+            window.con=content;
+        });
+
 
     </script>
 </div>

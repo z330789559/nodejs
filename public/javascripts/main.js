@@ -41,7 +41,30 @@ directive.directive('ngsButterbar', ['$rootScope',
 
                         }
                     };
-        }]) ;
+        }]).directive('myTextarea', function() {
+
+           return {
+
+        require: 'ngModel',
+
+        link: function(scope, ele, attrs, modelController) {
+                       debugger;
+            scope.$watch(ele.value,function(newValue){
+                debugger;
+                setVal(newValue);
+            });
+
+        function setVal(v) {
+            modelController.$setViewValue(v);
+            modelController.$render();
+        }
+
+    }
+
+}
+
+});
+
 //'$stateProvider','$urlRouterProvider','$interpolateProvider','$locationProvider',
 angular.module('myAppjs', [
     'ui.router',
